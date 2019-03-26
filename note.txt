@@ -1,1 +1,9 @@
 http://www.analogmuseum.org/library/handbook_of_analog_computation.pdf
+
+
+My rationale behind this approach for estimation:
+
+Traditionally, software was viewed as an assemblage of processng components. But from the API perspective, I view software as a set of pure interactions. Because I think that APIs are the substrate which facilitate interactions between information processing components, that is - humnas, databases and back-end systems, whose behaviors are assumed to be already defined (implemented). I view data read/write as transformations on the message template which is part of interactions. 
+
+Thus, most of the effort in API imlementations is spent on preparing the requests, transforming the responses and handling the data formats. Accordingly I have selected these as the parapmeters that influence the estimates.
+
