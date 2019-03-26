@@ -1,5 +1,6 @@
 http://www.analogmuseum.org/library/handbook_of_analog_computation.pdf
 https://zwischenzugs.com/2019/03/25/aws-vs-k8s-is-the-new-windows-vs-linux/
+http://dl.lateralis.org/public/sagebook/sagebook-ba6596d.pdf
 
 My rationale behind this approach for estimation:
 
