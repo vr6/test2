@@ -37,6 +37,46 @@ for i in range(0,50):
 for i in range(0, len(bn), 2):
 	print (bn[i])
 
+---------------
+-----------------------------------
+
+ n^x = (1 + xlogn/k)^k
+ = 1 + (k,1) (xlogn/k) + (k,2) (xlogn/k)^2 + (k,3) (xlogn/k)^3 + ... + (xlogn/k)^k
+
+ sum (n:2->c) ((logn)^k) = c ( (logc)^k - k(logc)^k-1 + k(k-1)(logc)^k-2 + ... + k!)
+
+ sum (n:2->c) (n^x) = 
+
+ c (1 + (k,m) (x/k)^k * ( (logc)^k - k(logc)^k-1 + k(k-1)(logc)^k-2  ) )
+
+ c (1 + (k,m) (x/k)^k * (logc)^k (1 - k(logc)^-1 ) )
+
+ c (1 + axlogc/k)^k   ;   (1 - k(logc)^-1) = a^k
+
+ a^k = (1 - k(logc)^-1)
+ 
+ a = (1 - k(logc)^-1)^(1/k)
+ 
+--------------------------------
+ 
+ c (1 + axlogc/k)^k = -1
+ 
+ (1 + axlogc/k)^k = -1/c
+
+ axlogc/k = (-1/c)^(1/k)
+  
+ x = (-1/c)^(1/k) * k/(alogc)
+
+ x = (-1/c)^(1/k) * k/ (logc * (1 - k(logc)^-1)^(1/k) )
+
+ x = (k/logc) * (-1/c)^(1/k) * (1 - k(logc)^-1)^(1/k) 
+
+ x = (k/logc) * (-1/c)^(1/k) * (1 - k/(logc))^(1/k) 
+
+ x = (k/logc) * ( (-1/c) * (1 - k/(logc)) )^(1/k) 
+
+--------------------------------
+ 
 
 
 
