@@ -94,7 +94,8 @@ for m in range (1000,1010):
 #x(logx)^1 ( 1 - 1/(logx))
 
 # 1 - 4/(logx) + 4*3/(logx)^2 - 4*3*2/(logx)^3 + 4*3*2*1/(logx)^4
-
+------------
+http://go.helms-net.de/math/binomial/zeta_bernoulli.pdf
 
 
 
