@@ -69,31 +69,35 @@ for i in range(0, len(bn), 2):
  
 import math
 
-c = 1e+12
+c = 1e+150
 #m = 5
 
-for m in range (1000,1010):
+for m in range (3,530, 10):
 	sum = 0.0
 	v = 1
 	sum = 1
 	for i in range (m):
-#		v *= (m-i) / math.log(c)
-		v *= (m-i) / m
-		sum += (-1)**(i+1) * v
-	print (sum)
+		v *= (m-i) / math.log(c)
+#		v *= (m-i) / m
+		a = (-1)**(i+1) * v
+#		print (a)
+		sum += a
+#	print (sum + math.sqrt(math.log(m))-((m-8.4)/(m)))
+	print (sum + math.sqrt(math.log(m)))
 
+# sum = 3 - math.sqrt(math.log(m))
+	
+	
+# x((logx)^1 - 1)
+# x((logx)^2 - 2*(logx) + 2*1)
+# x((logx)^3 - 3*(logx)^2 + 3*2*(logx) - 3*2*1)
+# x((logx)^4 - 4*(logx)^3 + 4*3*(logx)^2 - 4*3*2*(logx) + 4*3*2*1)
 
-#x( (logx)^1 - 1)
-#x( (logx)^2 - 2*(logx) + 2*1)
-#x( (logx)^3 - 3*(logx)^2 + 3*2*(logx) - 3*2*1)
-#x( (logx)^4 - 4*(logx)^3 + 4*3*(logx)^2 - 4*3*2*(logx) + 4*3*2*1)
+# x(logx)^4 ( 1 - 4/(logx) + 4*3/(logx)^2 - 4*3*2/(logx)^3 + 4*3*2*1/(logx)^4)
+# x(logx)^3 ( 1 - 3/(logx) + 3*2/(logx)^2 - 3*2*1/(logx)^3)
+# x(logx)^2 ( 1 - 2/(logx) + 2*1/(logx)^2)
+# x(logx)^1 ( 1 - 1/(logx))
 
-#x(logx)^4 ( 1 - 4/(logx) + 4*3/(logx)^2 - 4*3*2/(logx)^3 + 4*3*2*1/(logx)^4)
-#x(logx)^3 ( 1 - 3/(logx) + 3*2/(logx)^2 - 3*2*1/(logx)^3)
-#x(logx)^2 ( 1 - 2/(logx) + 2*1/(logx)^2)
-#x(logx)^1 ( 1 - 1/(logx))
-
-# 1 - 4/(logx) + 4*3/(logx)^2 - 4*3*2/(logx)^3 + 4*3*2*1/(logx)^4
 ------------
 http://go.helms-net.de/math/binomial/zeta_bernoulli.pdf
 
