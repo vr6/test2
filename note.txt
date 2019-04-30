@@ -65,25 +65,39 @@ for i in range(0, len(bn), 2):
 
  axlogc/k = (-1/c)^(1/k)
  
- --------------
- 
+---------------
+
 import math
 
-c = 1e+150
-#m = 5
+logc = 4000
 
-for m in range (3,530, 10):
-	sum = 0.0
-	v = 1
-	sum = 1
-	for i in range (m):
-		v *= (m-i) / math.log(c)
-#		v *= (m-i) / m
-		a = (-1)**(i+1) * v
-#		print (a)
-		sum += a
-#	print (sum + math.sqrt(math.log(m))-((m-8.4)/(m)))
-	print (sum + math.sqrt(math.log(m)))
+# logc is the log of the number of terms (c) in the zeta function sum.
+# n is the rising integer base for n^x or n^-x in the sum.
+# n = 2 to c (excluding the first term of 1)
+# n^x is written as e^(xlogn) and approximated as (1 + xlogn/k)^k. 
+# k is the finite exponent of e approximation. 
+# k is also the number of zeros (or minus ones).
+# m is the rising exponent of (xlogn/k) in the binomial expansion of (1 + xlogn/k)^k. 
+# m = 1 to k (excluding the first term of 1)
+
+def logsum():
+	for m in range (3, 5000, 200):
+		sum = 0.0
+		v = 1
+		sum = 1
+		for i in range (m):
+			v *= (m-i) / logc
+			a = (-1)**(i+1) * v
+			sum += a
+#		print (sum + math.sqrt(math.log(m)))
+		s = (1 - (1/math.e) * math.log (1+ 2.9*m/logc) )
+		print (1 + sum, ',', 1 + s)
+
+logsum()
+
+# 1/2 logc + c (logc)^n (2 - 1/e log (1+3n/logc) )
+
+# s = 0.5*gc + c * (gc**n) *(2 - (1/e) * math.log (1+ 3*n/gc) )
 
 # sum = 3 - math.sqrt(math.log(m))
 	
@@ -97,6 +111,9 @@ for m in range (3,530, 10):
 # x(logx)^3 ( 1 - 3/(logx) + 3*2/(logx)^2 - 3*2*1/(logx)^3)
 # x(logx)^2 ( 1 - 2/(logx) + 2*1/(logx)^2)
 # x(logx)^1 ( 1 - 1/(logx))
+
+
+
 
 ------------
 http://go.helms-net.de/math/binomial/zeta_bernoulli.pdf
