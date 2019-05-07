@@ -63,5 +63,15 @@ for i in range(100,110):
 	# print (slog, sigma, h2, rect, (slog+h2)/sigma, rect/sigma)
 
 # sigma = slog * (1 + 1e-6 + (m-13)*5e-11)
+f = sigma
+h = rect
+x = m
+
+i = h/f
+j = i7-i6
+k = j*x
+l = k8-k7
+m = l*x
+n= m9-m8
 
 
