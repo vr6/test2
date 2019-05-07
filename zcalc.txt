@@ -1,0 +1,67 @@
+import math
+from itertools import count, islice
+
+def zeta(s, t=100):
+    if s == 1: return complex("inf")
+    term = (1 / 2 ** (n + 1) * sum((-1) ** k * binom(n, k) * (k + 1) ** -s 
+                                   for k in range(n + 1)) for n in count(0))
+    return sum(islice(term, t)) / (1 - 2 ** (1 - s))
+
+def binom(n, k):
+    v = 1
+    for i in range(k):
+        v *= (n - i) / (i + 1)
+    # print(v)
+    return v
+
+# x((logx)^1 - 1)
+# x((logx)^2 - 2*(logx) + 2*1)
+# x((logx)^3 - 3*(logx)^2 + 3*2*(logx) - 3*2*1)
+# x((logx)^4 - 4*(logx)^3 + 4*3*(logx)^2 - 4*3*2*(logx) + 4*3*2*1)
+
+def slogdx(m, c):
+    logc = math.log(c)
+    sum = 0.0
+    v = 1
+    res = logc**m
+    # print(res)
+    for i in range (m):
+        v *= (i-m) 
+        # print (v)
+        res += v * logc**(m-i-1)
+        # print ("i=",i,"res=",res)
+    # return c*res + 0.5*logc**m
+    return c*res
+
+def sigmasum(m,c):
+    sigma = 0.0
+    for i in range (2,c+1):
+        sigma += math.log(i)**m
+    return sigma
+
+def zc(m,logc):
+	# return sum((math.log(n))**m for n in range(2,c))
+	# logc = math.log(c)
+	a = slogdx(m, logc)
+	# print(a)
+	return a
+
+def zcalc(x):
+    k = 5
+    logc = k
+    # z = sum ((1 - x*math.log(n)/k)**k for n in range(2,c))
+    z = sum ((-1)**m * binom(k, m) * (x)**m * zc(m,logc) for m in range(k))
+    print ((math.e**logc)*z)
+
+c = 10**7
+for i in range(100,110):
+	slog = slogdx(i, c)
+	sigma = sigmasum(i, c)
+	rect = (c*math.log(c)**i)/2
+	h2 = (math.log(c)**i)/2
+	print (slog, sigma, h2, rect)
+	# print (slog, sigma, h2, rect, (slog+h2)/sigma, rect/sigma)
+
+# sigma = slog * (1 + 1e-6 + (m-13)*5e-11)
+
+
