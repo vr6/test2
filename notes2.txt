@@ -1,0 +1,37 @@
+
+
+Team,
+
+We currently have a bit of crisis situation for dev progress in blockchain projects, due to things going in the following unplanned ways.
+
+* Dev resource onboarding delays
+* Changes in KMS team's support in Signer project
+* Last minute changes in the tech approach for ILOC and Signer (due to the above)
+* new tech satck/approach to be tried out (local ethereum nodes, pkcs11 etc)
+* Sibos and unbelievably aggressive deadlines (2-3 weeks for ILOC and Signer)
+
+In the view of the above, I recommend the following focus areas for the tech team, to get some progress. This is for today and the next two weeks only (Fire-fighting mode). We will continuously review and re-align.
+
+Venkat
+* get ILOC new approach working in local environment (local ethereum nodes).
+* Implement ILOC business flows (service impl), as many as possible.
+
+Amber, Rob and Niall (based on availability today and next week)
+* Refactor Alex's sample code into library functions and identify any additional functions we need to build, to support the flows.
+* Create json data object structures (for LC application etc) in Java (Consult Paul)
+* Extend/Populate fields for JWS/JWE/AMQP messages in Alex's sample code
+
+Alex & Sudha
+* Tech approach for Signer testing (pkcs11, client-certs)
+* Signer code installation and testing
+
+Questions? Suggestions?
+
+-venkat
+
+
+
+
+
+
+
