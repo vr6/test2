@@ -128,6 +128,17 @@ Monday is a bank holiday in Ireland. You can forward this email to Citi email ID
 
 Welcome onboard!
 
+-----------
+
+Team,
+
+I have checked in the ICD and sequence diagrams for the RM in bitbucket.
+
+The ILOC development will aim to deliver an implentation of the APIs as detailed in these documents, while utilizing information in other documents in the context of these APIs.
+
+Wherever information is missng or inconsistent across documents, dev will either consult team or make decisions which will be open for review through sprint reviews, JIRA comments or commit logs.
+
+Dev KT will begin once the team is on-boarded (with all CMPs done for access etc), and then the Dev tasks will kick-off.
 
 
 ------------
