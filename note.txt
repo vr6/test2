@@ -144,6 +144,12 @@ Dev KT will begin once the team is on-boarded (with all CMPs done for access etc
 ------------
 http://go.helms-net.de/math/binomial/zeta_bernoulli.pdf
 
+Just an internal note -
+
+The use of private key file here bothers me.
+
+Accessing one HSM-stored private key (for sign), forced us to create another private key (for ssl) that lies outside of HSM. If we push the second key also into HSM, it might require creating a 3rd key that lies outside. Is this what we wanted or is this decided by vendor?
+
 
 
  
