@@ -27,7 +27,30 @@ Alex & Sudha
 
 Questions? Suggestions?
 
--venkat
+-----------
+
+
+DLT tasks
+  smart contract
+  pantheon connector
+
+Integrations
+  mongo connector
+  mq connector
+
+Other
+  data models
+  data validators
+  nimbus handler
+  logging handler
+
+other components
+  main service
+  test scripts
+
+
+
+
 
 
 
