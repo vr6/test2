@@ -1,15 +1,3 @@
-http://www.analogmuseum.org/library/handbook_of_analog_computation.pdf
-https://zwischenzugs.com/2019/03/25/aws-vs-k8s-is-the-new-windows-vs-linux/
-http://dl.lateralis.org/public/sagebook/sagebook-ba6596d.pdf
-
-My rationale behind this approach for estimation:
-
-Traditionally, software was viewed as an assemblage of processng components. But from the API perspective, I view software as a set of pure interactions. Because I think that APIs are the substrate which facilitate interactions between information processing components, that is - humnas, databases and back-end systems, whose behaviors are assumed to be already defined (implemented). I view data read/write as transformations on the message template which is part of interactions. 
-
-Thus, most of the effort in API imlementations is spent on preparing the requests, transforming the responses and handling the data formats. Accordingly I have selected these as the parapmeters that influence the estimates.
-
------
-
 import math
 
 
@@ -112,47 +100,10 @@ logsum()
 # x(logx)^2 ( 1 - 2/(logx) + 2*1/(logx)^2)
 # x(logx)^1 ( 1 - 1/(logx))
 
----------------
-Hello J,
-
-Happy to learn that you have Citi email access now.
-
-The development for ILOC project is directed by Alex (Tech Lead). I work with the team as a Dev Lead. John (PM) might share a full list of RACI and communication protocols soon.
-
-Attached with this email are:
-* A document with a list of CMP requests to be raised by each in the dev team to get access to various dev-related facilities at Citi. One can raise these requests on behalf of others as well. You can reach out to John or Subodh for any help with these.
-
-* An ICD and sequence diagrams. These are part of the docs that we, the dev team, will go through for work on ILOC project.
-
-Monday is a bank holiday in Ireland. You can forward this email to Citi email IDs of other team members. Please do not forward ANY citi emails or docs to non-Citi email addresses.
-
-Welcome onboard!
-
------------
-
-Team,
-
-I have checked in the ICD and sequence diagrams for the RM in bitbucket.
-
-The ILOC development will aim to deliver an implentation of the APIs as detailed in these documents, while utilizing information in other documents in the context of these APIs.
-
-Wherever information is missng or inconsistent across documents, dev will either consult team or make decisions which will be open for review through sprint reviews, JIRA comments or commit logs.
-
-Dev KT will begin once the team is on-boarded (with all CMPs done for access etc), and then the Dev tasks will kick-off.
-
 
 ------------
 http://go.helms-net.de/math/binomial/zeta_bernoulli.pdf
 
-Just an internal note -
-
-The use of private key file here bothers me.
-
-Accessing one HSM-stored private key (for sign), forced us to create another private key (for ssl) that lies outside of HSM. If we push the second key also into HSM, it might require creating a 3rd key that lies outside. Is this what we wanted or is this decided by vendor?
-
-
-
- 
   
  x = (-1/c)^(1/k) * k/(alogc)
 
