@@ -51,9 +51,9 @@ other components
 ----------
 I think the flow diagram on the top of the document doesn't really belong here, as no references to the diagram are made in the text below it.  ***nexus***
 
-Also if this diagram need to be cosnidered as a dev requirement, the diagram should relate itself to the sequence diagram as most of its content seem to overlap. We also need to have a Q&A session with dev team, similar to technical design sessions, to digest this.
+Also if this diagram need to be cosnidered as a dev requirement, the diagram should relate itself to the sequence diagram as most of its content seem to overlap. We also need to have a Q&A session with dev team, similar to technical design sessions we had, to digest this.
 
-Also, I really think the wording need to be changed to reflect what is really happening, with regards to merkle hash and publishing of LC application.
+Also, I really think the wording need to be changed with regards to merkle hash and publishing of LC application.
 
 Preferably, we should mention that the hash (fingerprint) of the LC application is what is being recorded in the DLT. We can show logs only to that effect.
 
