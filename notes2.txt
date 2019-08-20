@@ -60,7 +60,7 @@ Preferably, we should mention that the hash (fingerprint) of the LC application 
 Also I think we should mention that, by "Representation of LC Application", we mean an hash of the LC application content. Because a representation could mean some form of the content, while hash is not a form of the content.
 ------------
 
-ILOC POC Projects: Paln-A, Plan-B and Plan-C
+ILOC Projects: Paln-A, Plan-B and Plan-C
 
 There was a bit of confusion regarding what these plans are. So thought of providing some clarity as far as I knew. Please correct it if needed.
 
@@ -68,7 +68,7 @@ Plan-A: This is the original technical design that incuded Nexus and Signer, and
 
 Plan-B: This is the modified technical design that excludes Nexus and Signer. The original sequence diagrams are replaced by the  DRAM seqeunce diagram. The vendor development team (Infosys team) has been engaged to develop this, using a modular implementation approach. The project is using agile methodology for dev sprints.
 
-Plan-C: This is the existing DRAM project code which Alex has written for his E4 project, which should cover functionality for ILOC project as per the ILOC technilcal design (see Plan-B). The goal here is to reafactor this code into multiple reusable methods and make it run as an API service. The existing DRAM code is supposed to meet almost all of the requirements for ILOC project, so the expectation is that we can meet the ILOC target dates using this plan. Infosys team is not engaged in this. Dublin team is working on this.
+Plan-C: This is the existing DRAM project code which Alex has written for his E4 project. The goal here is to reafactor this code into multiple reusable methods and make it run as an API service. The existing DRAM code is supposed to meet almost all (99%) of the requirements and technical design for ILOC project (see Plan-B). Infosys team is not engaged in this. Dublin team is working on this.
 
 -----------
 
