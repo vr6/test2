@@ -72,6 +72,20 @@ Plan-C: This is the existing DRAM project code which Alex has written for his E4
 
 -----------
 
+ILOC Team,
+
+Just wanted to reiterate that any documents that need to be used as an input (requirements, design etc) need to be explicitely identified as such by the document authors and shared with the development team. Currently the following documents are shared and being used for the POC development:
+
+1. Sequence diagrams
+2. ICD document
+
+In addition to the above, we are going to share Acceptance Critera document next week (see below).
+
+All documents to be used as inputs by development team are shared via the bitbucket repo (iloc-documentation/dev-documents)
+
+Thanks,
+Venkat 
+-----------
 
 
 
