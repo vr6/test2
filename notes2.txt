@@ -83,6 +83,8 @@ In addition to the above, we are going to share Acceptance Critera document next
 
 All documents to be used as inputs by development team are shared via the bitbucket repo (iloc-documentation/dev-documents)
 
+I request project team members to complete the documentation delivery to dev team latest by end of next week, including any Q&A sessions as needed.
+
 Thanks,
 Venkat 
 -----------
