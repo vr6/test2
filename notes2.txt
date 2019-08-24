@@ -89,7 +89,31 @@ Thanks,
 Venkat 
 -----------
 
+Remove slash. Roles are not same.
 
+Nexus, dram adn signer are all generic serivces. Generic services mean they don't look into the content they are handling and don't have content-specific logic.
+
+Nexus offers mainly 3 operations for transctions - build, sign, submit.
+
+Dram offers mainly 3 operations for messages - register, send, receive
+
+None of these services and their operations are content-aware. That means they do not look into data they handle.
+
+The implementation of these products commits to requirements are platform level or service level, which are not content-specific.
+
+However, the acceptance criteria is content-specific. It refers to functionality related to message types. Dram requirements are not specific to message types. For example, issuance messages are treated differently from drawdown messages.
+
+....
+
+The developemnt team is currently building code to meet the requirements that are available in ICD and sequence diagrams.
+
+If you think these requirements are the same as those requirements, then we don't need to send these requirements to dev.
+
+It was aggreed that the requirements and design of the platform guarantees that these business requirements can be met by using platform alone without additional custom logic. The development team guarantees that the code implements the platform according to platform's generic requirements.
+
+Guaranteeing that platform meets business requriements, is in the commitment from the roles that define the technical requirements and design for the platform, but not from the roles that implement the platform.
+
+----------------
 
 
 
