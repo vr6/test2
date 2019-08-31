@@ -115,6 +115,15 @@ Guaranteeing that platform meets business requriements, is in the commitment fro
 
 ----------------
 
+Just wondering what this formal sign-off means, by a dev-lead, on multiple process documents such as HLFA, Acceptance Criteria, Scope Document etc - all for a POC project in the Lab. Is this the practice across all the Lab projects or is this a Citi process for POC projects? I have not come across any such thing so far in my assigned trainings, so asking.
+
+Also, I see that these docuemnts are being circulated among multiple teams (Lab-internal and external) for formal reviews and sign-offs with elaborate comittments from the Lab. Not sure on what commitments are the Lab-external teams are signing-off on, from their side. In my view, an agile POC project, by definition, should not be tied to too much formalism or the full set of Citi processes.
+
+However, I fully agree in participating in any process for a POC, as long as I'm made aware of the process. Sorry If I missed to read anything that already explains all this. Would be glad if you can provide links to such information.
+
+Copying Gulru, becuase the context involves the Lab processes for POC projects.
+
+----------------
 
 
 
