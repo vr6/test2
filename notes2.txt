@@ -117,6 +117,9 @@ Guaranteeing that platform meets business requriements, is in the commitment fro
 
 Just wondering what this formal sign-off means for me, on these multiple documents for a POC project.
 
+
+If this is to agree that there are no issues with these requirements from coding perspective, it largely depdends whether this requirement is in sync with other requirement. Dev will not be able to attest on this. 
+
 Which one of the following is what you are asking me to agree on, through this sign-off?
 * That I will work on these requirements
 * That these requirements are implementable by using the given technical approach.
