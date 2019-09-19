@@ -135,5 +135,22 @@ Sorry, being pedantic is not my preference, but forced by insistence on a formal
 
 ----------------
 
+Alex - I'm happy to do any task as long as it is explicit enough. I was requesting you to kindly discuss with John regarding selection of processes that are required for Plan-B build pipelines, deployment, sonar, production support etc, as mentioned in the slides sent by you. You both can ofcourse consider all the items in entirity, as well. I have no objection to any of this and it is not my job make a decision in this regard.
 
+Once such selection is made, I can help john in setting up these processes and ensure we have adherences to such processes. We can't adhere to a process that is non-existent in the project (for example, continuous build and deployment to ECS).
+
+I was always in favor of setting up the best processes for development. For example, I'm the one who has shifted to docker container-based deployments for all the services required for Plan-C and Plan-B. 
+
+In the past, I was granted rewards from CTO/CEO's of the companies I worked for, for establishing the open-source based modern dev processes such as Behaviour-Driven test methodologies.
+
+As an Apache opensource committer, I always strived for the best technologies and processes.   
+
+Hope you understand.
+
+Donal - I have nothing more to say in any further discussion regarding this topic. Kindly excuse me.
+
+
+Venkat
+
+-------------------
 
