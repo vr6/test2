@@ -117,6 +117,31 @@ http://go.helms-net.de/math/binomial/zeta_bernoulli.pdf
 
 --------------------------------
  
+The dev team makes a sprint release of ILOC POC (Plan-B) today, tagged as "DEV-RELEASE-1.0". You can release it as a milestone release or final release for the project, as needed.
+
+The release notes (attached with this email) and other release artefacts are available at <>
+
+The development is completed within the planned dev sprints despite the deleays and other issues that affected the work.
+
+Release Notes for the Sprint-6 
+
+Location of release artefacts
+
+Release Notes
+Source code
+Deployable artefacts 
+Manual test cases
+Code review records
+Logging outputs
+
+other notes:
+1. The latest changes to the acceptance criteria, received on 19.9.19 were not addressed in this release. They can be scheduled for next sprint.
+
+2. SOAP UI test cases were produced instead of curl scripts
+
+3. Logging output includes references to the line items in the acceptance criteria
+
+
 
 
 
