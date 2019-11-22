@@ -141,7 +141,28 @@ other notes:
 
 3. Logging output includes references to the line items in the acceptance criteria
 
+-----------
 
+
+
+Hi Alex,
+
+While technically I agree with you that the batching requirement can be best met by a pervasive MQ approach all through the solution (among internal components as well), personally I feel that we should challenge the batch requirement for the sake of innovation and best practices, instead of allowing a throw-back to legacy architectures.
+
+Following are a few problems I see with the whole solution (requirements and approach as well)
+
+1. APIs need to be removed from all iternal microservices (HSM adapters, DLT adapters etc), and they need to be made MQ consumers and MQ producers. This will push the dev estimates.
+
+2. MQ solutions are notorious for being buggy and unreliable, due to lack of transparency (sender and receiver have no direct communication). There is no wonder that MQ solutions are being phased out in favor of APIs.
+
+3. nCipher service is API based and can't support MQ. Whatever benefit of converting all APIs to MQ along the flow, wil be lost in the final leg of flow with DLTs and HSMs which are not in our control.
+
+4. Branding of Nexus as an innovation might be affected due to its techstack and approach which is heavily MQ-based. AMQP does not fix this.
+
+All of the above are strictly my personal opinions, which could be wrong (different from other seemingly correct opinions) and there are no assertions in any of the above regarding their absolute truth.
+
+
+------------
 
 
 
