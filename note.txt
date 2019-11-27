@@ -142,24 +142,45 @@ other notes:
 3. Logging output includes references to the line items in the acceptance criteria
 
 -----------
+refer old questions - 
+will all txns in a request have same operation (sign etc)?
+do we need two clusters? how are they different?
+will the two clusters use the same ESB?
+user authentication - who can send messages?
+how do citi apps know where to collect responses?
+when are the per-citiapp output queues created?
+will the request messages carry a reply-to header?
+
+apear to be helping, not questioning
+side with the team
+for example, suggest solutions, not just questions
+
+already looking for a goat
+they might blame archi and dev
+how would they blame dev?
+dev took own decisions?
+not done tdd?
+implemented wrongly?
+too many frd questions?
+delayed beyond estimates?
+
+sure, I can address questions to steve, but since his availability is limited, the dev task progress will accordingly get affected
+
+you are resposible for dev task progress
+if a dev task cannot progress, assign it to someone who needs to unblock it
+
+
+environment setup
+we spent effort in setting up ci/cd apim etc, which needs rework
+tech approach was delayed
+tech design expert is not available in team
+req do not align with tech approach
+using a legacy tech design with significant complexity
+estimates were asked for, before the approach is known nand before discussing requirements
 
 
 
-Hi Alex,
 
-While technically I agree with you that the batching requirement can be best met by a pervasive MQ approach all through the solution (among internal components as well), personally I feel that we should challenge the batch requirement for the sake of innovation and best practices, instead of allowing a throw-back to legacy architectures.
-
-Following are a few problems I see with the whole solution (requirements and approach as well)
-
-1. APIs need to be removed from all iternal microservices (HSM adapters, DLT adapters etc), and they need to be made MQ consumers and MQ producers. This will push the dev estimates.
-
-2. MQ solutions are notorious for being buggy and unreliable, due to lack of transparency (sender and receiver have no direct communication). There is no wonder that MQ solutions are being phased out in favor of APIs.
-
-3. nCipher service is API based and can't support MQ. Whatever benefit of converting all APIs to MQ along the flow, wil be lost in the final leg of flow with DLTs and HSMs which are not in our control.
-
-4. Branding of Nexus as an innovation might be affected due to its techstack and approach which is heavily MQ-based. AMQP does not fix this.
-
-All of the above are strictly my personal opinions, which could be wrong (different from other seemingly correct opinions) and there are no assertions in any of the above regarding their absolute truth.
 
 
 ------------
