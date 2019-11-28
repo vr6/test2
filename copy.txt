@@ -1,0 +1,25 @@
+
+
+Th following applies to processing for a single request message carrying one or more instructions.
+
+* All message-level checks will be done first, followed by instruction-level checks.
+* A message-level error will result in a single response message carrying the error information. The message will not be processed further.
+* Once message-level checks are cleared, a request ID is created and a message will be sent back informing acceptance of the message for processing. Message processing continues.
+* All instruction-level errors will be collected into a single response message that will be sent out immediately. Message processing continues for the valid instructions.
+* All HSM responses, including HSM rejects and HSM errors, against the valid instructions will result in a single response message carrying the results.
+* In case of HSM not responding for an instruction, retries will be attempted, and after failure of retries, the HSM responses obtained thus far will result in the response message, and no further processing wil be done for the message.
+* All the errors will be logged.
+
+Message-level checks:
+* Nexus threshold for max number of instructions in a request
+* Format validation
+* HSM URL
+* Adapter-specific checks
+
+Instruction-level checks:
+* Key-identity check
+* Other instruction-level checks
+
+
+
+
