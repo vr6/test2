@@ -1,44 +1,21 @@
+Having visibility into a request sent by a device, how to do the folowing?
+
+* How to ensure that device sends true information about it's posture, meta info, location etc.
+
+* How to verify if the device is sending the true meta information
+
+* What are some immutable biometrics that can be used as ID for a device (not user) which can't be changed in its lifetime?
+
+* How to verify such ID of the device (not user)?
+
+* How to geo-locate a device in a fool-proof and precise way, using its request information? For example, the browser sends Lab's IPs as UK-based. Try google maps.
+
+* How to standardize the device meta information across multiple device types
+
+* How to make use of the device meta information?
+
+* How to whitelist a blacklisted device back when it returns to a compliant posture
+
+* How to do some of the above for the device app that is sending the request?
 
 
-In other words, it translates to the following, in terms of what Nexus user sees or gets back from Nexus (user-experience).
-
-This is not much different from the current FRD; just providing a user-centric view of Nexus responses.
-
-The following are the Nexus responses which the Nexus user receives after they submit a single request message (MQ or API) which carries one or more instructions (docs to be signed, encrypted etc).
-
-Note: HSM here means a service such as nCipher API (not physical HSM)
-
-Happy-path scenario (what Nexus user recieves if there are no errors whatsoever)
-
-1. An ack message informing that their request message was accepted for processing.
-
-and then later,
-
-2. A single response message carrying the HSM results agianst all instructions.
-
-Negative-path scenarios
-
-case-1: Message-level validation failure (as opposed to instruction-level failures)
-
-1. An error response message describing the error.
-
-Nu further responses.
-
-case-2: Instruction-level failure
-1. An ack message informing that the request message was accepted for processing.
-
-and then later,
-
-2. A single response message carrying the error descriptions for all the faulty instructions.
-
-and then later,
-
-3. A single response message carrying the HSM results against all or partial instructions (why partial? see below).
-
-Note on the single response message carrying the HSM results:
-
-When an instruction message is sent to HSM for processing, HSM could reject it due to incorrect input, or not respond at all due to an internal error, or just process it successfully.
-
-Accordingly, the Nexus response message could potentially be partial, in case where HSM did not respond in a timely fashion for an instruction. The HSM results recieved until encountering such failure will form the partial response message. 
-
-Further, the partial or full response message could potentially include HSM rejection errors (due to HSM detecting errors in the input).
