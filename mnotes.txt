@@ -1,0 +1,298 @@
+
+pascal triangle can also be arranged as a matrix
+a backward diagonal in the pascal matrix is a column in the triangle
+a forward diagonal in the matrix is a row in the triangle
+
+binomial	n=k	row in the triangle and forward diagonal in the matrix
+sum of terms is 2^n
+
+simplex: nCr where n-r=k is a row or column in the matrix, diagonal in the triangle
+k=1: sequence of natural integers
+
+nCr where n-2r=k is a column in the triangle and backward diagona/l in the matrix
+k=0 : main diagonal: ratio of terms ~= 4
+
+Also, the ratio of the central number in an odd numbered row of the Pascal triangle, to the second number in the diagonal passing through the central number. If the triangle is arranged as a diagonally expanding square matrix, then the catalan numbers are the ratios of the numbers on the main diagonal, to their row or column indexes.
+
+r! is the unit and ratio between (n+r)!/n! and r! (unit) is the simplex number.
+
+(a+b)!/(a!b!)
+a+b=k => binomial
+b=k or a=k => simplex
+a-b=k => C*(a+1) or C*(b+1)
+2a+b=k => sums are Fibonacci terms
+a=2b =>?
+
+N = r consectuve integers starting with n
+F = r consectuve integers starting with 1
+Cu(n,r) is prod(N)/prod(F)
+Cu(n,r) = 1 if n=0 or r=0
+
+r=2 => Cu(n,r) is triangular number  : n(n+1)/2
+r=3 => Cu(n,r) is tetrahedral number : n(n+1)(n+2)/6
+
+b^n - a^n => it is the volme of the paint of thickness (b-a), when half of sides of a n-cube, around a vertex, are painted. The painted area can be divided into multiple regions, spiralling around the vertex, and with volumes made up by products of a and b with sum of their exponents being equal to n. When b=1 and a<1, the volumes of spiralling regions would transform from 1^(n-1) to a^(n-1). 
+
+Also, if the n very large, a^n would be very small due to a<1, making the paint volume become equal to the volume of the entire cube, though paint thickness is small. That is - 
+
+1 = (1-a)(1+a+a^2+a^3+...)
+LHS is the entire volume of the cube (b^n), while RHS is the paint thickness (1-a) multiplied by the paint area. RHS is the paint volume while the LHS is the cube volume.
+
+The volume of an higher-dimensinal cube, with its side<1, comes from its sides. There is nothing inside of those sides.
+
+-----------------------
+Factorial spiral
+
+Start with a line of one unit long. Sweep it through second dimension for 2 units creating a rectangle, and then sweep the rectangle into third dimension through 3 units. Continue this process for higher dimensions using uniformly increasing lengths. The set of consecutive edges of the cuboid with uniformly increasing lengths, forms a spiral in N dimensions.
+
+The N-volume of the cuboid is N! The r-volume of the cuboid is related to Ncr.  Let's call this as unit N-cuboid.
+
+Instead of starting with 1 unit, start with m units for the first dimension and m+1 units for  the second dimenion etc.  What's the ratio of N-volume of this cuboid to the N-Volume of the unit N-cuboid? This could be related to catalan numbers.
+
+------------------------
+Six symmetrical asymptotes
+
+xy = a+b  ; a = x or -x;   b = y or -y              =>  4 asymptotes
+ab = a+b  ; a = (1-x) or (1+x);  b = (1-y) or (1+y) =>  2 asymptotes
+
+1/p = p-1
+p^2 = p+1
+1/p^2 = p^2+1-2p = 2-p
+p^2 + 1/p^2 = 3
+
+y=1/x, y=x/(x+1) intersect at (p,1/p)  => x^2 = x+1
+y=1/x => xy = 1;  y=x/(x+1) => xy = x-y 
+
+-----------
+c = k * (a-1)
+d = n + (s-1)/2
+f = -ks
+
+inf sums
+sum (kx+a)^sn : n = {0,1} -> 20
+k = {-1,1}
+s = {-1,1}
+a = {-1,0,1}
+
+asyms
+(x+c)(y+d) = f
+f = {-1,1}
+c = {-2,-1,0,1,2}
+d = {-1,0,1}
+------------
+d = n if exp is positive
+d = -1 if n = 0; otherwise d = 0
+f = -1 if exp and x hav same sign, 1 otherwise
+c = (a-1) with sign of x
+------------
+s=1:
+d= i (initial val of n : 0 or n)
+f= - sign of x
+c=(a-1) with sign of x
+
+(x+a-1)(y+d) = -1  => k= 1
+(x-a+1)(y+d) =  1  => k=-1
+-------------
+n=1,s=1
+d=1
+f = -k
+c = f(1-a)
+
+(x+a-1)(y+1) = -1  => k= 1
+(x-a+1)(y+1) =  1  => k=-1
+-------------
+r is the inf sum from x^0 to x^+inf
+s is the inf sum from x^0 to x^-inf
+r + s = 1
+    r(1-x) = 1
+(1-s)(1-x) = 1
+0.5 + r = 0.5 - s
+g is the inf sum from x^-inf to x^+inf
+g = r + s - 1 = 0
+-------------
+p(a,x) = (a+x)/(a-x)
+x * p(i,1) rotates 0 axis by π/2 
+i * p(i,x) rotates 1 axis by π/2 
+1 * p(1,x) rotates i axis by π/2
+-------------
+  -x rotates 0 axis by π 
+ 1/x rotates 1 axis by π 
+-1/x rotates i axis by π 
+-------------
+0 and inf are the arithmetic mean between x and -x
+1 and -1  are the geometric mean between x and 1/x
+i and -i  are the geometric mean between x and -1/x
+-------------
+if -1 can be sqrt of 1, then inf = 0/2
+1/3 and 3 have -1 as a geometric mean
+-2 and 2 have inf as an arithmetic mean
+-------------
+R sphere is not tri-symmetric
+It has poles (or main axis) along 0 and inf
+and equator along 1,i,-1,-i
+-------------
+p(x,0.5) = (x+0.5)/(x-0.5)
+converges to (3+sqrt(17))/4
+for all initial values except for (3-sqrt(17))/4
+sqrt(17)/4 = sqrt (1 + 1/16)
+-------------
+-p(x,1) = (x+1)/(-x+1)
+-p(x,1) is a 1-centric view of the sphere
+x=0 => 1
+x=1 => inf
+x=-1 => 0
+x=2 => -3
+x=-2 => -1/3
+x=inf => -1
+x=i => i
+x=-i => -i
+-------------
+t = (a-b)/(a+b)
+s1 = inf sum (1 + t + t^2 + t^3 + ...)
+s1 = 1/2 (1 + a/b)
+
+t = (a+b)/(a-b)
+s2 = inf sum (1 + t + t^2 + t^3 + ...)
+s2 = 1/2 (1 - a/b)
+s1 + s2 = 1
+-------------
+iterative functions
+z2 = f(z1), z3 = f(z2) etc
+y is the output of current iteration based on prev iteration.
+n is the count of iterations done
+if f(x)=x^k, then
+f(x)=x^2:  y = y' + 2n + 1
+f(x)=x^3:  y = y' + 3n^2 + 3n + 1
+f(x)=x^k:  y = y' + sum(kCi n^i): i=0 to k-1
+f(x)=k^x:  y = y' + (k-1)*y'
+special case: k=2=> y = y' + y' => 2^k
+-------------
+(-a)^0 = ?
+it is +1 only if infinite is even, otherwise, it is -1.
+-------------
+y = a + 1/y'
+converges to y = a/2 +/- sqrt(a^2+4)/2
+special cases:
+a = 1 => y = phi (golden ratio)
+a = 2 => y = 1 + sqrt(2)
+-------------
+y = 1 - 1/y' and 
+y = 1/(1-y') 
+cycle through 3 values whose product is -1
+(y-1)/y, -1/(y-1), y
+x = 1/(1-x) => x^3 = -1
+-------------
+y = (y'-1)/(y'+1)
+cycles through 4 values whose product is 1
+(y-1)/(y+1), -1/y, (1+y)/(1-y), y
+x = (x-1)/(x+1) => x^4 = 1 ; x = i
+-------------
+y = a + 1/y'^k
+converges for k<=4, otherwise alternates
+special case: k=1 => y = phi
+y = a - 1/y'^k
+alternates for k<=1, otherwise diverges
+-------------
+z(3) = 1.2020569
+-------------
+y=(a+y')/(a-y') or
+y=(y'-a)/(y'+a)
+converges when a <= 3-2sqrt(2) 
+or a < 1/(3-2sqrt(2))
+outside of that range
+it has spikes at finite intervals
+-------------
+y = 1/(a-y') 
+converges when a >= 2 
+-------------
+converge
+cycle
+diverge
+-------------
+
+t=0
+e^it = 1
+1^i = 1
+
+t=π/2
+e^it = i
+e^t = i^-i
+e^-t = i^i
+it = logi
+logi/i = t = π/2
+
+t=π
+e^it = -1
+log (-1) = iπ
+
+t=3π/2
+e^it = -i
+e^t = -i^-i
+-----------------
+
+u = e^i(2kπ + t)
+ln(u) = i(2kπ + t)
+ln(1) = i(2kπ + 0)
+ln(-1) = i(2kπ + π)
+ln(i) = i(2kπ + π/2)
+ln(-i) = i(2kπ - π/2)
+
+u^i = e^-(t+2kπ)
+
+1 = e^i(2kπ + 0)
+1^i = e^(-2kπ + 0)
+1^-i = e^(2kπ + 0)
+
+-1 = e^i((2k+1)π)
+-1^i = e^(-(2k+1)π)
+-1^-i = e^((2k+1)π)
+
+i = e^i((2k+0.5)π)
+i^i = e^(-(2k+0.5)π)
+i^-i = e^((2k+0.5)π)
+
+-i = e^i((2k-0.5)π)
+-i^i = e^(-(2k-0.5)π)
+-i^-i = e^((2k-0.5)π)
+
+k=0 =>
+i^i = -i^-i
+i^-i = -i^i
+-1^i = -1^-i
+1^i = 1^-i
+-------------
+a = e^ln(a)
+a^i = e^iln(a)
+----------
+(1+i)^(1-i) = (e^iπ/4)^(1-i)
+= e^(1+i)π/4
+= e^π/4 * e^iπ/4
+= e^π/4 * (1+i) * 1/sqrt(2)
+= 1.55 * (1+i)
+
+(1-i)^(1+i) = (e^-iπ/4)^(1+i)
+= e^(1-i)π/4
+= e^π/4 * e^-iπ/4
+= e^π/4 * (1-i) * 1/sqrt(2)
+= 1.55 * (1-i)
+----------
+i^(1+i) = (e^iπ/2)^(1+i)
+= e^-(1-i)π/2
+e^iπ/2 / e^π/2
+= i / e^π/2
+
+i^(1-i) = (e^iπ/2)^(1-i)
+= e^(1+i)π/2
+e^iπ/2 / e^π/2
+= i / e^π/2
+
+
+
+
+
+
+
+
+
+
+
