@@ -1,21 +1,13 @@
-Having visibility into a request sent by a device, how to do the folowing?
-
-* How to ensure that device sends true information about it's posture, meta info, location etc.
-
-* How to verify if the device is sending the true meta information
-
-* What are some immutable biometrics that can be used as ID for a device (not user) which can't be changed in its lifetime?
-
-* How to verify such ID of the device (not user)?
-
-* How to geo-locate a device in a fool-proof and precise way, using its request information? For example, the browser sends Lab's IPs as UK-based. Try google maps.
-
-* How to standardize the device meta information across multiple device types
-
-* How to make use of the device meta information?
-
-* How to whitelist a blacklisted device back when it returns to a compliant posture
-
-* How to do some of the above for the device app that is sending the request?
 
 
+Further, I want to note that the database update requirement for modifying a Nexus subscription record is currently a bit too complex or non-standard, I think. I suggest we revisit this requirement after the current release.
+
+Mongodb document update is quite common, and I don't think our subscription record is special in structure or in requirement. We may be able to just follow the standard practices.
+
+When a mongodb document (record) has an array of child objects in it, and if one or more of the array elements need to be modified, the standard practice is to provide the IDs for the array elements to be modified (to locate them) and specify new values (key-value pairs). The fields to be updated should not be ID fields. If you want to change ID, first delete the object and insert a new object.
+
+The above should suffice all reasonable update requirements. Essentially, the request for update should mostly resemble the request for creation of a new document, in structure.
+
++team
+
+Thanks
