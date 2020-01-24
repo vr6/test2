@@ -1,13 +1,25 @@
 
 
-Further, I want to note that the database update requirement for modifying a Nexus subscription record is currently a bit too complex or non-standard, I think. I suggest we revisit this requirement after the current release.
+All - This is the first milestone release for the Nexus Suite Tech Live project, covering the following core functionality:
 
-Mongodb document update is quite common, and I don't think our subscription record is special in structure or in requirement. We may be able to just follow the standard practices.
+Nexus REST API for on-boarding of Citi Apps
+Nexus Async API for Signer Service
+MQ Messaging using RH AMQ
+Support for bulk requests for Signer service
+Phased validations of request messages and acks
+Signer adapter for nCipher service (Phase-1)
+AMQP support for MQ messaging
+Support for positive and negative testcases
 
-When a mongodb document (record) has an array of child objects in it, and if one or more of the array elements need to be modified, the standard practice is to provide the IDs for the array elements to be modified (to locate them) and specify new values (key-value pairs). The fields to be updated should not be ID fields. If you want to change ID, first delete the object and insert a new object.
+What's not covered in this release:
+nCipher Phase-2 API
+REST API for Nexus Router functionality
+DLT Adapters
 
-The above should suffice all reasonable update requirements. Essentially, the request for update should mostly resemble the request for creation of a new document, in structure.
+We have scheduled a demo of the functionality this morning. 
 
-+team
+Great job, folks! Well done!!
+Let's chug on with the next release!
 
-Thanks
+Thanks,
+Venkat
