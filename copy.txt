@@ -1,18 +1,14 @@
+Hi Subodh,
 
+You might remember that as I reported in the architecture call yesterday, this lib is a very old one (June 2007), and even some of its higher versions are prohibited or classified as vulnerable in Citi.
 
-I'm still puzzled to understand why banks should be excited about IoT. Media and consulting firms are incentivized to trumpet about how cool IoT is and how banks should start panicking about it.
+I think we need to review the whole point of SMG integration. If we have to store the certs and private keys os disk files (temp folder), then I don't see the point in using SMG. Using files is our current approach anyway, without SMG also.
 
-All interactions hitting a bank (or any online service in general) originate in the real world. They travel a long path before reaching a bank. Sometimes humans are involved in pushing it along this path. IoT is about removing humans in this path. Even in the case where humans are involved, they don't directly interact with a bank anyway - except when they receive that cool bundle of cash from a teller or ATM. But I would classify that cash deliery as a goods delivery becuase it is physical paper.
+We are not getting enough suport from SMG team. We do not know if someone is using SMG in Citi, why they use it and how they use it. The API reference docs are not available. API calls result in file creation instead of returning objects, which is a bit wierd for our usecase.
 
-Since humans don't directly interact with a bank, removal of humans in the path of banking flow, hardly matters. By the time it reaches a bank, from sensor networks through MQTT to sensor hubs, then to mobile networkss, and on to third party aggregators and services, blockhcain networks, oracles, third party services and so on, and then finally arriving at a bank, it is just a plain API call. It has lost all of it's cool IoT-ness very early along this path.
+I suggest we park this SMG integration for MVP and revisit this when we have more information from SMG team.
 
-Ofcourse, there would be more non-banked entities (devices) getting their accounts (or the fancy name - wallets) and there would be more micro payments. But this is the same case when the non-banked real hummans (billions of them) get their bank accounts through their smart phones. Did I miss a whole new era of banking? (as media would like to put it)
-
-Just my thoughts.
+If we do need to do this now, the we may need to raise a CTC request for this older version of crypto library and then the team can proceed. 
 
 Thanks,
 Venkat 
-
-
-
-
