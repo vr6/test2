@@ -1,14 +1,25 @@
-Hi Subodh,
+Hi Steven,
 
-You might remember that as I reported in the architecture call yesterday, this lib is a very old one (June 2007), and even some of its higher versions are prohibited or classified as vulnerable in Citi.
+Thanks for the clarifications!
 
-I think we need to review the whole point of SMG integration. If we have to store the certs and private keys os disk files (temp folder), then I don't see the point in using SMG. Using files is our current approach anyway, without SMG also.
+I understand that you are only recommending SMG integration, but not mandating it or making a decision whether we should use it or not. I can understand this and I'm immensely thankful to you for the highly needed guidance you are providing on Citi best practices.
 
-We are not getting enough suport from SMG team. We do not know if someone is using SMG in Citi, why they use it and how they use it. The API reference docs are not available. API calls result in file creation instead of returning objects, which is a bit wierd for our usecase.
+After reading the SMG docs, I'm still trying to understand more about SMG for our usecase. Could you please throw some light on my earlier question of "the point of SMG integration"? I'm elaborating further on my question (and my understanding from our earlier discussions) below.
 
-I suggest we park this SMG integration for MVP and revisit this when we have more information from SMG team.
+* During runtime, Nexus does not interact with SMG, except for the first time, when the cert and private key files are retrieved from SMG. Once the files are retrieved from SMG and stored locally on disk, the files are used for subsequent calls without interacting with SMG again.
 
-If we do need to do this now, the we may need to raise a CTC request for this older version of crypto library and then the team can proceed. 
+* However, we could as well get the files directly from Citi PKI, store them locally and not integrate with SMG at all. Could you please contrast this scenario against the scenario which uses SMG?
+
+* Additinally, I could not find any reference to learn about the SMG API access control (the significance of CMP order ID). Do you have any links? Just curious to learn about this.
+
+* I'm asking the above becasue we need to keep Nexus lean and performant by cutting non-essential costs for the MVP phase. If SMG integration is meant to comply with some Citi policy (instead of functional benefit), kindly let us know about it as well.
+
+I'm sure that I'm just missing some information which would make it all clear.
 
 Thanks,
-Venkat 
+Venkat
+
+
+
+
+ 
