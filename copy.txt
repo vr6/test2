@@ -1,14 +1,14 @@
 
 
-One small note though, regarding the appendix in FRD.
+Today, I have reviewed the dev tasks for the upcoming release with 2 weeks to go. In the view of the release, I just want to make the following clarifications, to keep everyone on the same page:
 
-I think it can not be compared with the appendix used for implementing the nCipher adapter.
+SMG SSL connectivity issue: I suggest we stop the troubleshooting work until we complete the release. Mayank will test this out next Friday once the HSM card is inserted and report the results. The release doesn't have a dependency on this work.
 
-The reason being, Corda App is not similar to a nCipher Adapter but it is similar to nCipher service itself (Refer the diagram below). nCipher servie was not built based on a FRD appendix. A Corda Adpater would be similar to nCipher Adapter.
+Corda requirements/feasibility work: I would like to have Jagad (lead developer) focus on the dev tasks for the release, as we don't have a buffer now for the test and fix cycle. I'm suggesting to utilize Ajay (Corda expert), Infosys CoE resources and R3 hours, with coordination by Ashutosh (PM) for this work. Jagad will also help, if needed, while ensuring the dev release tasks as his first priority.
 
-Appendix information was used to map the Nexus interface (used by Citi apps) to the target service interface (ex. nCipher service). This is the role of adapters and appendix mappings.
+Please let me know if any concerns or suggestions, so that I can adjust accordingly.
 
-So, while the FRD appendix will help in implementing the Nexus Corda Adapater, we might need a set of requriements for Corda app itself (which is seperate from the adapter). If such requriements can all be accommodated in the appendix, that is fine too.
+
 
 
 -----------
