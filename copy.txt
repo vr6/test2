@@ -1,34 +1,13 @@
+* It provides an alternative CMP request form to get certficates.
+
+* The SMG CMP process delivers the certificate files directly to the Nexus application as files.
+
+* This is in contrast to the regular CMP process (non-SMG) which delivers files to the requestor or VM. The files need to be pushed to the application thorugh the deployment bundle.
+
+* The deploymnet push could be avoided in the regular CMP case as well, if the certificate content is updated to the Nexus on-boarding data, which already has placeholders for this.
+
+So I think it boils down to whether it is a Citi policy to use SMG for requesting certs for an application.
+
+Also, we are deferring SMG integration until we get to UAT phase where we can use the certificates without manual manipulation of roots in the trust stores. This would not affect testing of Nexus functionality.
 
 
-Today, I have reviewed the dev tasks for the upcoming release with 2 weeks to go. In the view of the release, I just want to make the following clarifications, to keep everyone on the same page:
-
-SMG SSL connectivity issue: I suggest we stop the troubleshooting work until we complete the release. Mayank will test this out next Friday once the HSM card is inserted and report the results. The release doesn't have a dependency on this work.
-
-Corda requirements/feasibility work: I would like to have Jagad (lead developer) focus on the dev tasks for the release, as we don't have a buffer now for the test and fix cycle. I'm suggesting to utilize Ajay (Corda expert), Infosys CoE resources and R3 hours, with coordination by Ashutosh (PM) for this work. Jagad will also help, if needed, while ensuring the dev release tasks as his first priority.
-
-Please let me know if any concerns or suggestions, so that I can adjust accordingly.
-
-
-
-
------------
-I think we need some basic information, with regards to this task.
-
-Task
-* Is this task meant for creating a technical approach for a Corda app or is it for Nexus?
-
-Specification document (from requirements team)
-* Is this interface specification meant for a Corda app or is it for Nexus?
-* If it is only meant for Nexus, are we free to choose approach for Corda app? (Token SDK etc)
-* If it is meant for Corda app, then what interface specification for Nexus are we supporting?
-
-Corda app for testing only?
-* Are we developing the corda app as a dummy app so that we can test Nexus against it?
-* If it is not a dummy app for testing, does it mean Nexus would always be bundled with this Corda app, and every Citi app will deploy this app on Corda network, for all usecases using Nexus?
-* If it is a dummy app for testing, does it mean Nexus expects all Corda apps to support this interface (wherever Nexus is used)?
-
-Archietcture diagram
-* Currently Nexus architecture doesn't have this Corda app as part of Nexus. Can we have a high-level architecture diagram clarifying the above?
-
-Thanks,
-Venkat
