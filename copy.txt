@@ -1,13 +1,13 @@
-* It provides an alternative CMP request form to get certficates.
 
-* The SMG CMP process delivers the certificate files directly to the Nexus application as files.
+Just to keep us on the same page about these DLT calls, and my interest in these calls:
 
-* This is in contrast to the regular CMP process (non-SMG) which delivers files to the requestor or VM. The files need to be pushed to the application thorugh the deployment bundle.
+* The task for dev team is to develop one more Corda apps
+* To start development, dev team needs the Corda app requirements or details in terms of Flows, States etc.
+* The DLT smart contract specification document is not a Corda app requirements document. As I understand, it was meant to be a DLT-agnostic smart contract interface, derived from Ethereum DLT standards. However, it can not be used as Corda app details. Because it's content does not describe Corda Flows or States and even the language (solidity) used to define the interface, is not supported by Corda.
+* As far as I know, the Nexus requirements (or strategy) team has asked Infosys team to help in drafting the Corda app requirements details (called as approach for some reason).
+* I did not ask for any implementation approach or proposal on how to develop the Corda apps. We know how to develop Corda apps. What we need is Corda app requirement details.
+* Once these Corda app requirement details are available, we can start development.
 
-* The deploymnet push could be avoided in the regular CMP case as well, if the certificate content is updated to the Nexus on-boarding data, which already has placeholders for this.
 
-So I think it boils down to whether it is a Citi policy to use SMG for requesting certs for an application.
-
-Also, we are deferring SMG integration until we get to UAT phase where we can use the certificates without manual manipulation of roots in the trust stores. This would not affect testing of Nexus functionality.
 
 
