@@ -1,13 +1,12 @@
 
-Just to keep us on the same page about these DLT calls, and my interest in these calls:
 
-* The task for dev team is to develop one more Corda apps
-* To start development, dev team needs the Corda app requirements or details in terms of Flows, States etc.
-* The DLT smart contract specification document is not a Corda app requirements document. As I understand, it was meant to be a DLT-agnostic smart contract interface, derived from Ethereum DLT standards. However, it can not be used as Corda app details. Because it's content does not describe Corda Flows or States and even the language (solidity) used to define the interface, is not supported by Corda.
-* As far as I know, the Nexus requirements (or strategy) team has asked Infosys team to help in drafting the Corda app requirements details (called as approach for some reason).
-* I did not ask for any implementation approach or proposal on how to develop the Corda apps. We know how to develop Corda apps. What we need is Corda app requirement details.
-* Once these Corda app requirement details are available, we can start development.
+Just curious - do we know of any current usage of AI in Citi in the areas of credit-risk rating etc?
+
+Authorities will mandate validation/certification of fin services using approved test frameworks (open-source). If we already have services employing AI in the designated areas, the services will need to be re-validated. Fresh implementations will typically embed these tools in their test harnesses.
+
+The opensource mentioned sounds similar to the TCK (Technology Compatibility Kit, provided by Sun Microsystems) which I used to run for certifying J2EE/SOAP platforms against the standardized specs. Its a test suite with 100's of test cases. When I submit the all-green test results to authorities, my web-services platform gets certified.
 
 
 
 
+ 
