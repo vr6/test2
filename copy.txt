@@ -1,11 +1,12 @@
 
 
-Sorry Prag,
 
-I didn't thnk there is no "mis-alignment" at all in this conversation. I think the two emails on which I copied infosys team are normal work-related communications only, which, I thought, requires dev team to be in loop.
+Nice find, Adrian. Thanks for sharing!
 
-I'm the one who does the tech reviews with dev team for the stories that are ready. But we normally don't do take up research tasks for this review. Subodh knows this and I reminded the same to him in the first email (no mis-alignment).
+Though technically not as ground breaking as Deep Blue (1996) or AlphaGo (2015) in human-machine interaction, I think this development is in a very critical direction.
+
+While technologoy services/products are rapidly expanding to reach every human on the planet, customer services are failing due to capacity constraints. However this problem pertains to only the edges of technology adaption, because once the adaption is complete, the interaction moves from voice to APIs or gestures.
 
 Thanks,
-Venkat 
+Venkat
 
