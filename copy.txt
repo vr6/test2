@@ -1,22 +1,8 @@
-I think this is what we should do for this meeting. Prag and you can correct me if I'm wrong - I'm no project planning expert.
+Hey Matt,
 
-We should let the team collectively decide on overall estimates in terms of X months, without requiring commitments from dev or anyone, becuase estimations depend on scoping and vice-versa.
+Thanks for letting me know. I guess we both can talk any time to see where things are going in this area. Also, I think there will be more talks from me. Becuase I see a huge up-tick in activity recently in the area of Quantum unitary matrices for Deep Learning.
 
-More justification why this makes sense:
+People say that machine learning has reached its limits due to breakdown of Moore's law, and only quantum computing can help progress it from here on.
 
-What I see with our projects is, functional coding takes only a fractional amount of effort compared to the effort needed for supporting non-functional, implicit/unspecified/modified requirements that pop up duing different stages of development. I'm not complaining about this. Change of requriements is natural and expeced.
-
-Committing to dev estimates at the beginning of a project amounts to fulfilling two conditions that are hardly useful:
-* Not allowing changes to requriements during the project
-* Requiring full definition of functional, non-functional, architectural, compliance, requirements before committing to any dev estimates
-
-Since these two conditions are prohibitive and hardly make sense for most software projects, the usual practice is to allow requirements to be defined/changed as the project progresses. The involves no commitments on dev estimates and the product can be released anytime when it is deemed (by the product manger) to be good enough as a release candidate (RC). Estimates and planning can still be done for a release scope that is smaller and clear enough to estimate and plan for. This is what most project release cycles follow, in my experience.
-
-However, this doesn't mean we can't have any overall dates or plans. As a team, we can cobble up initial project estimates, in a meeting. This is only to guide the high-level project scoping and planning (say, in terms of X months). This estimate need not be based on the commitments from anyone and this is usually refined as the project progresses, in consultation with the project team, stake-holders etc.
-
-One important final point: I think you should submit project plan or any such commitments to direclty only those who gave you business requirements and scope. Becuase the plans and estimates are strictly against the scope and requirements. This allows you to change the plan whenever they ask for change in scope.
-
-If you submit the plan to someone who didn't give you the scope/requirements, then they will hold you for these commitments, becuase they won't ask you for any scope changes from their side.
-
--venkat
-
+Thanks,
+Venkat
