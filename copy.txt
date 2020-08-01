@@ -1,8 +1,18 @@
-Hey Matt,
 
-Thanks for letting me know. I guess we both can talk any time to see where things are going in this area. Also, I think there will be more talks from me. Becuase I see a huge up-tick in activity recently in the area of Quantum unitary matrices for Deep Learning.
 
-People say that machine learning has reached its limits due to breakdown of Moore's law, and only quantum computing can help progress it from here on.
+I'm fine as long as you don't say it was Venkat's mistake.
 
-Thanks,
-Venkat
+Now I see that actually you have been using tha same incorrect plan since early June, much before I said "it looks fine". And you were saying that it was my email that caused this issue. This is very incorrect practice I think.
+
+The mistake itself should remain primarily owned by you, unless you have done that conciously/intentionally and made people aware of that. Sice you were not aware of this yourself, you can't say everyone has agreed for that.
+
+I *am* supporting you Subodh, but the support should not mean me ownning your mistakes. Everyone has their own load of stuff to be responsible for. There are lots of people looking to push their faults onto someone in this project and a lot of my time goes into safegaurding myself froom this.
+
+
+
+
+
+
+
+
+
