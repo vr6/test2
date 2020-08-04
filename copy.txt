@@ -1,13 +1,8 @@
 
 
-I'm fine as long as you don't say it was Venkat's mistake.
+I think we need to target more of what is useful in today's business context on the ground and what is possible in today's technology context, instead of going too strategic, addressing far-future scenarios. Being a little ahead of time helps to gain an edge, but we still need to validate the business context and tech context for such near-future scenarios. Otherwise we should defer our build-outs until such context develops.
 
-Now I see that actually you have been using tha same incorrect plan since early June, much before I said "it looks fine". And you were saying that it was my email that caused this issue. This is very incorrect practice I think.
-
-The mistake itself should remain primarily owned by you, unless you have done that conciously/intentionally and made people aware of that. Sice you were not aware of this yourself, you can't say everyone has agreed for that.
-
-I *am* supporting you Subodh, but the support should not mean me ownning your mistakes. Everyone has their own load of stuff to be responsible for. There are lots of people looking to push their faults onto someone in this project and a lot of my time goes into safegaurding myself froom this.
-
+The main issue was forced a build-out without validating the tech context and busienss context.
 
 
 
