@@ -1,13 +1,1 @@
 
-
-I think we need to target more of what is useful in today's business context on the ground and what is possible in today's technology context, instead of going too strategic, addressing far-future scenarios. Being a little ahead of time helps to gain an edge, but we still need to validate the business context and tech context for such near-future scenarios. Otherwise we should defer our build-outs until such context develops.
-
-The main issue was forced a build-out without validating the tech context and busienss context.
-
-
-
-
-
-
-
-
