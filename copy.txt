@@ -1,1 +1,32 @@
 
+we need a summary of the approach as agreed by the approach owners and development team for the implementation for the next sprints in the context of recent research work, compliance related requirements, Corda account keys, Corda account ownership verification etc.
+
+So, can I ask you to kindly fill in the agreed resolution against the following, so that Amber and Alex can confirm it? You can fill the resolutions available so far and update as the discusisons progress (use excel sheet?)
+
+IMPORTANT NOTE: Please specify resolution for MVP release only, not for post-MVP or Production releases. You can specify whether the resolution has dependency on the integration of Corda nodes/accounts with an HSM.
+
+1. Rsearch work-1: Corda-app jar file signature must comply with Citi security standards.
+
+Resolution:
+
+2. Research work-2: App client interactions with corda apps mmust use the build-sign-submit pattern using a method compliant with Citi security standards.
+
+Resolution:
+
+3. Account-ownership verification requirement: The corda app must verify the ownership of the account and assets before the proceeding with processing requests from a Citi app.    
+
+Resolution:
+
+4. Account keys (confidential identities) must be stored in an HSM and used in a manner that is compliant with Citi security standards.
+
+Resolution:
+
+5. Generation and usage of Public keys for an account:
+
+Resolution:
+
+6. Requirements related to compliance with Citi Security Standards
+
+Resolution:
+
+
