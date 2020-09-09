@@ -1,50 +1,8 @@
 
+Nexus usecase
 
-https://www.cnbc.com/2020/01/21/jpmorgan-hires-ibm-master-inventor-marco-pistoia.html
+After I noticed in yesterday's FRD review call, that we don't have a requirement to maintain a list of supported platforms (DLT/HSM) and don't check a registration request against such list, I think we might be missing some other very basic stuff as well, which we can't detect now due to lack of a canonical/prototypical usecase. For example, defining the full on-boarding process is one more such area where we might need some user-experience (not UI) requirements.
 
-https://news.efinancialcareers.com/ie-en/3004145/jpmorgan-quantum-computing
+I suggest that we identify an existing Citi app (Trade Bridge?) and think in terms of how that app might integrate with Nexus and what pain-points could be addressed. We might actually need that app (sand-boxed) in our environment.
 
-https://news.efinancialcareers.com/uk-en/3004051/quantum-computing-banking-ibm
-
-
-https://reader.elsevier.com/reader/sd/pii/S2405428318300571?token=B784F873DEF3BDF59F8163F617D4185158BE0A0C8ED41A833FBDD5A4D145D8621805715E35A79456791A19136C8FD5D5
-
-https://meetingsandevents.jpmorganchase.com/metron/(medialibrary)/55216dc5-b073-46a4-ad56-76a32f8a1939/meetings/32ade8db-aa6a-4b5a-94e5-e70da0081272/documents/Monday_1230_Colin_W.pdf
-
-https://medium.com/@quantum_wa/quantum-computing-and-finance-f7839c894979
-
-
-
-
-
-we need a summary of the approach as agreed by the approach owners and development team for the implementation for the next sprints in the context of recent research work, compliance related requirements, Corda account keys, Corda account ownership verification etc.
-
-So, can I ask you to kindly fill in the agreed resolution against the following, so that Amber and Alex can confirm it? You can fill the resolutions available so far and update as the discusisons progress (use excel sheet?)
-
-IMPORTANT NOTE: Please specify resolution for MVP release only, not for post-MVP or Production releases. You can specify whether the resolution has dependency on the integration of Corda nodes/accounts with an HSM.
-
-1. Rsearch work-1: Corda-app jar file signature must comply with Citi security standards.
-
-Resolution:
-
-2. Research work-2: App client interactions with corda apps mmust use the build-sign-submit pattern using a method compliant with Citi security standards.
-
-Resolution:
-
-3. Account-ownership verification requirement: The corda app must verify the ownership of the account and assets before the proceeding with processing requests from a Citi app.    
-
-Resolution:
-
-4. Account keys (confidential identities) must be stored in an HSM and used in a manner that is compliant with Citi security standards.
-
-Resolution:
-
-5. Generation and usage of Public keys for an account:
-
-Resolution:
-
-6. Requirements related to compliance with Citi Security Standards
-
-Resolution:
-
-
+Not sure if this makes sense becuase this could have aleady been addressed in some form, but this is only a suggestion just in case if it helps. 
