@@ -1,8 +1,8 @@
 
-Nexus usecase
 
-After I noticed in yesterday's FRD review call, that we don't have a requirement to maintain a list of supported platforms (DLT/HSM) and don't check a registration request against such list, I think we might be missing some other very basic stuff as well, which we can't detect now due to lack of a canonical/prototypical usecase. For example, defining the full on-boarding process is one more such area where we might need some user-experience (not UI) requirements.
 
-I suggest that we identify an existing Citi app (Trade Bridge?) and think in terms of how that app might integrate with Nexus and what pain-points could be addressed. We might actually need that app (sand-boxed) in our environment.
+In addition to the above, I think we should also ask for help in having a roadmap/continuity plan as currently I dont't think we have much visibility into the next year and also becuase functionality could be limited to request input validation only, without Corda adapter.
 
-Not sure if this makes sense becuase this could have aleady been addressed in some form, but this is only a suggestion just in case if it helps. 
+No, I wasn't suggesting any process changes. I agreed with Paul that the current Jira-agile process is working fine for us. I was making a minor suggestion that, since the plan already has dates on it, maybe we can add a new column (next to dates) to mention the sprints (and make dates align, if needed/possible).
+
+You can ignore it if you think it is not imiportant. There could be better areas to spend our effort :)
