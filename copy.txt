@@ -1,8 +1,0 @@
-
-
-
-In addition to the above, I think we should also ask for help in having a roadmap/continuity plan as currently I dont't think we have much visibility into the next year and also becuase functionality could be limited to request input validation only, without Corda adapter.
-
-No, I wasn't suggesting any process changes. I agreed with Paul that the current Jira-agile process is working fine for us. I was making a minor suggestion that, since the plan already has dates on it, maybe we can add a new column (next to dates) to mention the sprints (and make dates align, if needed/possible).
-
-You can ignore it if you think it is not imiportant. There could be better areas to spend our effort :)
