@@ -117,19 +117,4 @@ http://go.helms-net.de/math/binomial/zeta_bernoulli.pdf
 
 --------------------------------
 
-
-
-I just want to throw some light on suitablity of ECS for Nexus components. 
-
-Architecture-wise Nexus solution is not quite designed for ECS hosting. The current Nexus architecture does not identiify ECS as the hosting environment for major Nexus components such as Corda App, Signer Service which all run outside of ECS. MQ brokers and Databases which are also major dependency services also run outside of ECS.
-
-Nexus is primarily a consumer process for MQ queues, but not much of REST API anymore. Nexus POC (2017-18) was designed to be a set of microservices with REST APIs which made it a suitable for ECS deployemnet with an APIM Gateway fronting and token-based authentication etc.
-
-However the phase-2 design of Nexus has changed drastically, by shifting from being a REST API to an MQ consumer. As such, Nexus requests are currently authenticated by MQ broker, but not by APIM tokens.
-
-My point is, the ECS Team might have selected our projects just because they saw these as being dev projects in ECS. However I suggest to hold off this migration until we validate our solution design with potential users (apps) after which the architecture can be updated with suitable deployemnt target details etc.
-
-
-
-
  
