@@ -117,4 +117,23 @@ http://go.helms-net.de/math/binomial/zeta_bernoulli.pdf
 
 --------------------------------
 
- 
+I know I'm not as knowledgeable as other folks here, but from an Architecture/SDLC perspective, I would like to through some light.
+
+An ML application deployment has roughly 3 pipelines - Application, Model and Data pre-processing. All three areas can progress parallely and be deployed through seperate paths or pipelines handled by seperate roles.
+
+So, it appears that you are considering the only one of these pipelines - the Model pipeline. But it has very close dependencies on other pipelines as well (for example data pre-processing or feature engineering).
+
+* Sounds more like a Testing/verification role
+* An AI application may have larger context (with APIs, user role etc) than the AI model. Are we considering the full application context?
+* Just making the data available or writing data cleaning code? This role could probably go into the feature pipeline and have a lot more to do.
+* This area is evolving into "no-code" kind of style, as in other areas of modern software dev practices. Once the hyper-parameters, clean data, feature repo and XPU/clusters are made availabe, the frameworks are capable of producing a package model artifact ready for deployment, that might even have a ready-made API wrapper. However tuning of hyper-parameters through bayesian optimization etc could be the focus of this role. 
+
+Other important areas:
+* Data transformations and reductions before and after the model, which are carried out by a typical fork-join jobs.
+* Model verification, bench-marking by a tester role
+* Model spec'ing, documentation - a very important work for keeping the model transparant
+* Model monitoring - integrating the model operational metrics into a dashboard
+
+As mentioned in the beginning, the application (API, user tokens etc) and the data processing are deployed seperately, and they might require additional roles.
+
+
