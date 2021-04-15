@@ -117,23 +117,16 @@ http://go.helms-net.de/math/binomial/zeta_bernoulli.pdf
 
 --------------------------------
 
-I know I'm not as knowledgeable as other folks here, but from an Architecture/SDLC perspective, I would like to through some light.
 
-An ML application deployment has roughly 3 pipelines - Application, Model and Data pre-processing. All three areas can progress parallely and be deployed through seperate paths or pipelines handled by seperate roles.
+Hi Phani,
 
-So, it appears that you are considering the only one of these pipelines - the Model pipeline. But it has very close dependencies on other pipelines as well (for example data pre-processing or feature engineering).
+Just wanted to inquire about the ML Engineer vacancy posted for your Dublin team. I work at Dublin Innovation labs with Prag (before his recent move), Matt Beckingham and other DS folks here. Joined DS team 4 months back but have been working for Prag for about 3+ years (blockchain and DS projects). I also recently worked with Vivek Chemicala for mentoring and sponsoring the E3 projects in ML. Currently I focus on ML Ops, devops and architecture areas for ML projects here and also mentor two E3 projects in ML.
 
-* Sounds more like a Testing/verification role
-* An AI application may have larger context (with APIs, user role etc) than the AI model. Are we considering the full application context?
-* Just making the data available or writing data cleaning code? This role could probably go into the feature pipeline and have a lot more to do.
-* This area is evolving into "no-code" kind of style, as in other areas of modern software dev practices. Once the hyper-parameters, clean data, feature repo and XPU/clusters are made availabe, the frameworks are capable of producing a package model artifact ready for deployment, that might even have a ready-made API wrapper. However tuning of hyper-parameters through bayesian optimization etc could be the focus of this role. 
+I do coding everyday and planning to take the Google Certificate Exam in TensorFlow in a couple of weeks. I'm well-versed with ML Deep Learning Modeling (both TF and PyTorch), and well-experienced in Data Engineering (Spark pipelines, SQL & Mongo). In the past, I was a Scientist in Numerical Modeling and later mostly worked as a Senior Software Architect for some well-known enterprise products at large organizations. I'm also an open source proponent and an Apache committer.
 
-Other important areas:
-* Data transformations and reductions before and after the model, which are carried out by a typical fork-join jobs.
-* Model verification, bench-marking by a tester role
-* Model spec'ing, documentation - a very important work for keeping the model transparant
-* Model monitoring - integrating the model operational metrics into a dashboard
+On a personal note - my personal website/blog is here. My son works as AI Scientist at Microsoft in Redmond and he is a BITS Pilani alumni.
 
-As mentioned in the beginning, the application (API, user tokens etc) and the data processing are deployed seperately, and they might require additional roles.
+My referrals would be Prag, Matt and Vivek. If you think my profile might work for the posting then I would would apply. Even if my profile doesn't match your requriement, I thought this gives me an opportunity to introduce mysef to you (Prag always promised he would introduce me, but never did) :))
 
+Thanks for your time!
 
