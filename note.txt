@@ -116,17 +116,3 @@ http://go.helms-net.de/math/binomial/zeta_bernoulli.pdf
  x = (k/logc) * ( (-1/c) * (1 - k/(logc)) )^(1/k) 
 
 --------------------------------
-
-
-Hi Phani,
-
-Just wanted to inquire about the ML Engineer vacancy posted for your Dublin team. I work at Dublin Innovation labs with Prag (before his recent move), Matt Beckingham and other DS folks here. Joined DS team 4 months back but have been working for Prag for about 3+ years (blockchain and DS projects). I also recently worked with Vivek Chemicala for mentoring and sponsoring the E3 projects in ML. Currently I focus on ML Ops, devops and architecture areas for ML projects here and also mentor two E3 projects in ML.
-
-I do coding everyday and planning to take the Google Certificate Exam in TensorFlow in a couple of weeks. I'm well-versed with ML Deep Learning Modeling (both TF and PyTorch), and well-experienced in Data Engineering (Spark pipelines, SQL & Mongo). In the past, I was a Scientist in Numerical Modeling and later mostly worked as a Senior Software Architect for some well-known enterprise products at large organizations. I'm also an open source proponent and an Apache committer.
-
-On a personal note - my personal website/blog is here. My son works as AI Scientist at Microsoft in Redmond and he is a BITS Pilani alumni.
-
-My referrals would be Prag, Matt and Vivek. If you think my profile might work for the posting then I would would apply. Even if my profile doesn't match your requriement, I thought this gives me an opportunity to introduce mysef to you (Prag always promised he would introduce me, but never did) :))
-
-Thanks for your time!
-
