@@ -116,3 +116,29 @@ http://go.helms-net.de/math/binomial/zeta_bernoulli.pdf
  x = (k/logc) * ( (-1/c) * (1 - k/(logc)) )^(1/k) 
 
 --------------------------------
+Hi Folks,
+
+Just wanted to update you all on the progress in terms of devops/MLOps for ML projects.
+
+1. ECS hosting of PinkAlbatross API:
+		90% complete. Adjusting Docker scripts is currently in progress
+
+2. ECS-Onboarding for other projects:
+		I request everyone to list the current deployment scenarios and whether ECS onboarding is desired, for the projects your are working on. This will help me to plan and initiate steps for ECS-onboarding of the projects.
+
+		Meanwhile, we are exploring setting up of other Ops services such as MLFlow to address the needs during model development, training and testing stages.
+
+3. MLFlow:
+		Initiating discussions with TLV team to sync-up
+		Testing is in progress to understand its scope
+
+4. Feature Store:
+		This is something I'm contemplating to explore. Will discuss with TLV team on this as well.
+
+5. Techstack:
+		Please list any unmet needs for techstack and tools (SageMaker, PyTorch etc). I will add to my list and track for resolution through CTC approvals or deviations.
+
+6. Any other concerns:
+		Please chime in!!
+
+
