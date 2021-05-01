@@ -116,29 +116,26 @@ http://go.helms-net.de/math/binomial/zeta_bernoulli.pdf
  x = (k/logc) * ( (-1/c) * (1 - k/(logc)) )^(1/k) 
 
 --------------------------------
-Hi Folks,
+Latest update on the ECS hosting for Model API.
 
-Just wanted to update you all on the progress in terms of devops/MLOps for ML projects.
+I have pushed a successful build to ECS on Friday around 10 PM. It is now up and running at <>.
 
-1. ECS hosting of PinkAlbatross API:
-		90% complete. Adjusting Docker scripts is currently in progress
+Next steps:
+1. Catherine and I will conduct a few tests and see if any fixes to be made in the following areas
+	- Removing any windows-specific configs (file paths etc)
+	- Ensuring that all needed files are in bitbucket
+	- Ensuring the data connections, if any needed, are working
 
-2. ECS-Onboarding for other projects:
-		I request everyone to list the current deployment scenarios and whether ECS onboarding is desired, for the projects your are working on. This will help me to plan and initiate steps for ECS-onboarding of the projects.
+I expect the debugging to take a few more days before we publish the API for integration.
 
-		Meanwhile, we are exploring setting up of other Ops services such as MLFlow to address the needs during model development, training and testing stages.
+A few notes:
+1. The build takes around 25 minutes and is triggered when a commit is pushed to bitbucket. While most of the python packages get installed in fractions of seconds, one single conda package takes several minutes to install.
 
-3. MLFlow:
-		Initiating discussions with TLV team to sync-up
-		Testing is in progress to understand its scope
+2. Currently, only minimal barebones steps are included in the build. The time could go much higher when we include test, code coverage and other monitoring hooks.
 
-4. Feature Store:
-		This is something I'm contemplating to explore. Will discuss with TLV team on this as well.
+3. Due to the time the buld takes, test and fix iterations might take longer than what you expect.
 
-5. Techstack:
-		Please list any unmet needs for techstack and tools (SageMaker, PyTorch etc). I will add to my list and track for resolution through CTC approvals or deviations.
+4. Getting this lightspeed build to this stage requried 60+ rebuilds, dozens of emails, INCs, CMPs and calls with Tenant Ops team, AI Engienering team, Trade tech team and ICG build team. There is a bit of process and incorrect/outdated information in some places due to fast changing environment.
 
-6. Any other concerns:
-		Please chime in!!
 
 
