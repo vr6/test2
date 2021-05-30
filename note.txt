@@ -116,26 +116,3 @@ http://go.helms-net.de/math/binomial/zeta_bernoulli.pdf
  x = (k/logc) * ( (-1/c) * (1 - k/(logc)) )^(1/k) 
 
 --------------------------------
-Latest update on the ECS hosting for Model API.
-
-I have pushed a successful build to ECS on Friday around 10 PM. It is now up and running at <>.
-
-Next steps:
-1. Catherine and I will conduct a few tests and see if any fixes to be made in the following areas
-	- Removing any windows-specific configs (file paths etc)
-	- Ensuring that all needed files are in bitbucket
-	- Ensuring the data connections, if any needed, are working
-
-I expect the debugging to take a few more days before we publish the API for integration.
-
-A few notes:
-1. The build takes around 25 minutes and is triggered when a commit is pushed to bitbucket. While most of the python packages get installed in fractions of seconds, one single conda package takes several minutes to install.
-
-2. Currently, only minimal barebones steps are included in the build. The time could go much higher when we include test, code coverage and other monitoring hooks.
-
-3. Due to the time the buld takes, test and fix iterations might take longer than what you expect.
-
-4. Getting this lightspeed build to this stage requried 60+ rebuilds, dozens of emails, INCs, CMPs and calls with Tenant Ops team, AI Engienering team, Trade tech team and ICG build team. There is a bit of process and incorrect/outdated information in some places due to fast changing environment.
-
-
-
