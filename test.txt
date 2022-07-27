@@ -1,0 +1,22 @@
+Approach
+* Review the requirements/constraints from the view points of MSK and MSK clients
+* Review the current patterns/solution for similar usecases within the sector.
+* Idenitify optimal solution for the usecase 
+
+Preparation
+* Bitbucket access
+* AWS VPC access
+* AWS Console access
+* MSK cluster access
+* LS project to deploy MSK test client in k8s pod (openshift?)
+* Provision certs for mTLS, if needed
+* Setup IAM roles
+
+Dev & testing
+* Test MSK auth using standard AWS samples
+* Test MSK auth in Citi context
+* Document results and approach
+
+
+
+
