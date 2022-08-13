@@ -1,0 +1,671 @@
+
+#%%
+
+def fact(n):
+    res = 1
+    for i in range (2, n+1):
+        res *= i
+    return res
+
+def ncr (n, r):
+    return fact(n)/(fact(n-r)*fact(r))
+
+bn = []
+bn.append(1.0)
+
+for i in range (0, 50):
+    sum = 0.0
+    for k in range(len(bn)):
+        sum += bn[k] * ncr (len(bn) + 1, k)
+    b = (0-sum)/(len(bn) + 1)
+    if abs(b) < 1.0e-08:
+        b = 0
+    bn.append(b)
+
+for i in range (0, len(bn), 2):
+    print(bn[i])
+    
+
+
+
+# %%
+
+
+#%%
+import pyspark
+from pyspark.sql import SparkSession
+
+spark = SparkSession.builder.appName('Test').getOrCreate()
+
+dept = [("Finance",10), \
+    ("Marketing",20), \
+    ("Sales",30), \
+    ("IT",40) \
+  ]
+deptColumns = ["dept_name","dept_id"]
+deptDF = spark.createDataFrame(data=dept, schema = deptColumns)
+deptDF.printSchema()
+deptDF.show(truncate=False)
+
+dataCollect = deptDF.collect()
+
+print(dataCollect)
+
+dataCollect2 = deptDF.select("dept_name").collect()
+print(dataCollect2)
+
+for row in dataCollect:
+    print(row['dept_name'] + "," +str(row['dept_id']))
+# %%
+#%%
+import pandas as pd
+
+df = pd.read_csv ('HPS560.csv')
+df.head (-1)
+# %%
+df = pd.read_csv ('HPD560.csv')
+df.head(-1)
+# %%
+df = pd.read_csv ('HPO560.csv')
+df.head(-1)
+
+# %%
+import matplotlib.pyplot as plt
+import numpy as np
+#%%
+#data
+# x = ['A','DC','E','FD','FH','LR','PC']
+h1 = [12225 , 1541720 , 2051902 , 437213 , 437213 , 610436 , 2866804]
+w1 = [41,36,19,39,33,26,38]
+c1 = ['b' for _ in range(len(h1))]
+
+h2 = [5913, 4426, 980, 803, 4172, 26316, 424774, 26000, 549, 42441, 11, 5238, 7983, 9148, 102664, 507, 24435, 86398, 5940, 6157, 600]
+w2 = [27, 22, 10, 16, 29, 27, 34, 20, 12, 4, 13, 23, 19, 30, 11, 36, 25, 38, 19, 22, 18]
+c2 = ['r' for _ in range(len(h2))]
+
+
+h = np.array(h1+h2)
+w = np.array(w1+w2)
+c = np.array(c1+c2)
+
+x1 = np.arange(len(h1))
+x2 = np.arange(len(h2))
+#%%
+
+#bar plot
+h3 = [1694477, 991274, 7869, 4026798, 255729, 947642, 286804, 2355835]
+w3 = [69, 91, 78, 75, 26, 60, 91, 56]
+x = ['D','F','I','O','P','R','S','T']
+plt.bar(x, height = h3, width = np.array(w3)/90)
+plt.show()
+# plt.bar(x2, height = h2, width = np.array(w2)/40)
+ 
+# plt.show()
+# %%
+
+# %%
+#%%
+sas_path = "../mscm-advs"
+#%%
+import re
+def process_sh_file(file_path):
+    with open(file_path,"r") as shellFile:
+        data = shellFile.read()
+        wps = []
+        for matches in re.findall("wps.*", data):
+            wps.append (matches)
+        return wps
+
+def count_lines(file_path, p_path):
+    with open(p_path + "/" + file_path,"r") as mFile:
+        lines = mFile.readlines()
+        count = 0
+        # skip blacnk linee
+        for line in lines:
+            if (len(line.strip())>0):
+                count += 1
+    return count
+
+sas_set = set()
+for i in range(5):
+    file_path = sas_path + "/as" + str(i);
+    print ("============== as" + str(i))
+    sas = process_sh_file(file_path)
+    for s in sas:
+        p = s.split(' ').pop() + '.sas'
+        sas_set.add(p)
+s2 = sorted(sas_set)
+print(s2)
+for s in s2:
+    n = count_lines(s, sas_path)
+    print(s+","+ str(n))
+
+#%%
+def process_sas_file(file_path):
+    with open(sas_path + "/" + file_path,"r") as sasFile:
+        data = sasFile.read()
+        macs = []
+        for matches in re.findall("&macros.*", data):
+            macs.append (matches)
+        return macs
+
+m_set = set()
+for sas_file in sas_set:
+    macros = process_sas_file(sas_file)
+    for m in macros:
+        p = m.split(' ').pop()
+        p = p[:-2].split('.')
+        p = '.'.join(p[1:])
+        m_set.add(p)
+print(sorted(m_set))
+
+# %%
+sas_set = sorted(sas_set)
+m_set = sorted(m_set)
+for s in sas_set:
+    with open(sas_path + "/" + s,"r") as sasFile:
+        csv = s
+        data = sasFile.read()
+        for m in m_set:
+            if data.find(m) > -1:
+                csv += ',1'
+            else:
+                csv += ',0'
+        print(csv)
+
+# %%
+for s in sas_set:
+    csv = ''
+    for i in range(5):
+        with open(sas_path + "/as" + str(i),"r") as shellFile:
+            data = shellFile.read()
+            if data.find(s.split('.')[0]) > -1:
+                csv += ',1'
+            else:
+                csv += ',.'
+    print(csv)
+#%%
+# check if the macros call other macros - seems they don't
+m_path = "../msbm"
+def process_macro_file(file_path):
+    with open(m_path + "/" + file_path,"r") as mFile:
+        data = mFile.read()
+        macs = []
+        for matches in re.findall("&macros.*", data):
+            macs.append (matches)
+        return macs
+
+m_set2 = set()
+for m_file in m_set:
+    macros = process_macro_file(m_file)
+    for m in macros:
+        p = m.split(' ').pop()
+        p = p[:-2].split('.')
+        p = '.'.join(p[1:])
+
+        m_set2.add(p)
+print(sorted(m_set2))
+#%%
+import os
+
+for file in os.listdir(m_path):
+    if file.endswith(".sas") and file.find("20") == -1:
+        count = count_lines(file, m_path)
+        print(file, count)
+#%%
+for m_file in m_set:
+    count = count_lines(m_file, m_path)
+    print(m_file, count)
+
+#%%
+sas2 = [
+    'asid.sas',
+    'aslb.sas'
+]
+m_set2 = set()
+for sas_file in sas2:
+    macros = process_sas_file(sas_file)
+    for m in macros:
+        p = m.split(' ').pop()
+        p = p[:-2].split('.')
+        p = '.'.join(p[1:])
+        m_set2.add(p)
+print(sorted(m_set2))
+
+#%%
+import os
+import re
+sas_path = "../mscm-advs"
+def process_sas_file(file_path):
+    with open(sas_path + "/" + file_path,"r") as sasFile:
+        data = sasFile.read()
+        macs = []
+        for matches in re.findall("&macros.*", data):
+            macs.append (matches)
+        return macs
+
+m_set = set()
+count = 0
+for sas_file in os.listdir(sas_path):
+    if sas_file.endswith(".sas"):
+        count += 1
+        macros = process_sas_file(sas_file)
+        for m in macros:
+            p = m.split(' ').pop()
+            p = p[:-2].split('.')
+            p = '.'.join(p[1:])
+            if p.endswith('\";'):
+                p = p[:-2]
+            m_set.add(p)
+print(sorted(m_set))
+print(len(m_set))
+print (count)
+#%%
+#%%
+m_path = "../msbm"
+def count_lines(file_path):
+    print (m_path + "/" + file_path)
+    # count = 0
+    with open(m_path + "/" + file_path,"r") as mFile:
+        lines = mFile.readlines()
+        count = 0
+        # skip blacnk linee
+        for line in lines:
+            if (len(line.strip())>0):
+                count += 1
+    return count
+
+for m_file in m_set:
+    count = count_lines(m_file)
+    print(m_file, count)
+
+#%%
+s5 = ['ast.sas',
+'atab.sas',
+'asc.sas',
+'aldr.sas']
+
+for s in s5:
+    n = count_lines(s, sas_path)
+    print(s+","+ str(n))
+# %%
+adv = "../msbm/advs.sas"
+with open(adv, "r") as mFile:
+    lines = mFile.readlines()
+    count = 0
+    macro_name = ''
+    for line in lines:
+        if line.startswith('%mend'):
+            print (macro_name, count)
+        if line.startswith('%macro'):
+            macro_name = line.split()[1]
+            if macro_name.endswith(';'):
+                macro_name = macro_name[:-1]
+            count = 1
+        if (len(line.strip())>0):
+            count += 1
+
+# %%
+
+#%%
+class Macro:
+    def __init__(self, name='-', size=0, callers=[], refcount=0, src=None):
+        self.name = name
+        self.size = size
+        self.callers = callers
+        self.refcount = refcount
+        self.src = src
+
+#%%
+from pathlib import Path
+import re
+
+txt = Path('./advs.sas').read_text()
+# txt = txt.replace('\n', '')
+txt = re.sub(r"/\*(.*?\n?)*\*/", "", txt)
+# print (len(txt.splitlines()))
+# print(txt)
+#%%
+macros = {}
+# with open('./advs.sas', "r") as mFile:
+lines = txt.splitlines()[1800:]
+lines = list(filter(lambda x: x.strip().startswith('/*') == False, lines))
+count = 0
+macro_name = ''
+src = []
+for line in lines:
+    if line.startswith('%mend'):
+        macros[macro_name] = Macro(macro_name, count, src=src)
+        # print (macro_name, count)
+    if line.startswith('%macro'):
+        macro_name = line.split()[1]
+        if macro_name.endswith(';'):
+            macro_name = macro_name[:-1]
+        count = 1
+        src = []
+    if (len(line.strip())>0):
+        count += 1
+        src.append(line)
+#%%
+print (len(macros))
+ks = sorted(macros, key=lambda x: macros[x].size, reverse=True)
+for k in ks[:10]:
+    print (macros[k].name + ',' + str(macros[k].size))
+    print (macros[k].src)
+# %%
+# with open('./advs.sas', "r") as mFile:
+lines = txt.splitlines()[1800:]
+lines = list(filter(lambda x: x.strip().startswith('/*') == False, lines))
+for k, v in macros.items():
+    count = 0
+    for line in lines:
+        if ((line.find('%' + k + ' ')) != -1 or 
+        (line.find('%' + k + ';')) != -1 or
+        (line.find('%' + k + '(')) != -1):
+            count += 1
+    v.refcount = count
+ms = list(filter(lambda x: macros[x].refcount > 0, macros))
+# for m in ms:
+#     print (m, macros[m].refcount)
+for m in ms:
+    callers = []
+    for k,v in macros.items():
+        for s in v.src:
+            if ((s.find('%' + m + ' ')) != -1 or 
+            (s.find('%' + m + ';')) != -1 or
+            (s.find('%' + m + '(')) != -1):
+                callers.append(k)
+                break
+    macros[m].callers = callers
+for m in ms:
+    print (m, macros[m].callers)
+
+# %%
+v = macros['eligtag']
+for s in v.src:
+    print(s, end='')
+# %%
+
+#%%
+class Macro:
+    def __init__(self, name='-', size=0, srcfile='', callers=[], refcount=0):
+        self.name = name
+        self.size = size
+        self.callers = callers
+        self.refcount = refcount
+        self.src = []
+        self.srcfile = srcfile
+
+#%%
+from pathlib import Path
+import re
+
+mfiles = [
+    'advadmit.sas',
+    'advdrug.sas',
+    'advelig.sas',
+    'advfachd.sas',
+    'advfacil.sas',
+    'advgen.sas',
+    'advpop.sas',
+    'advprof.sas',
+    'advs.sas',
+    'loadenrl.sas',
+    'statfreq.sas',
+    'statmean.sas',
+    'utilmac.sas',
+]
+txts = []
+for file in mfiles:
+    txt = Path('../msbm/'+file).read_text()
+    txt = re.sub(r"/\*(.*?\n?)*\*/", "", txt)
+    txts.append(txt)
+print (len(txts))
+#%%
+macros = {}
+mstack = []
+srcstack = []
+for i in range(len(txts)):
+    txt = txts[i]
+    lines = txt.splitlines()
+    lines = map(lambda x: x.strip(), lines)
+    m2 = None
+    for line in lines:
+        if (m2 is not None) and (len(line)>0):
+            m2.size += 1
+            m2.src.append(line)
+        if line.find('%mend') != -1:
+            # print ('adding macro: ' + name)            
+            macros[m2.name] = m2
+            if not mstack:
+                m2 = None
+            else:
+                m2 = mstack.pop()
+                if mstack:                
+                    print('found nested macro: '+ m2.srcfile + '-' + m2.name)
+        elif line.startswith('%macro'):
+            name = line.split()[1]
+            if name.endswith(';'):
+                name = name[:-1]
+            # print ('found macro: ' + name)
+            m2 = Macro(name, srcfile=mfiles[i])
+            mstack.append (m2)
+
+#%%
+print (len(macros))
+ks = sorted(macros, key=lambda x: macros[x].size, reverse=True)
+#%%
+for k in ks[:2]:
+    print (macros[k].srcfile + ',' + macros[k].name 
+        + ',' + str(macros[k].size) + ',' + str(len(macros[k].src)))
+# %%
+for k, v in macros.items():
+    count = 0
+    for txt in txts:
+        if ((txt.find('%' + k + ' ')) != -1 or 
+        (txt.find('%' + k + ';')) != -1 or
+        (txt.find('%' + k + '(')) != -1):
+            count += 1
+    v.refcount = count
+ms = list(filter(lambda x: macros[x].refcount > 0, macros))
+for m in ms:
+    print (m, macros[m].refcount)
+#%%
+for m in ms:
+    callers = []
+    for k,v in macros.items():
+        for s in v.src:
+            if ((s.find('%' + m + ' ')) != -1 or 
+            (s.find('%' + m + ';')) != -1 or
+            (s.find('%' + m + '(')) != -1):
+                callers.append(k)
+                break
+    macros[m].callers = callers
+
+#%%
+for m in ms:
+    print (macros[m].srcfile + '\t' + m + '\t' + str(macros[m].callers))
+
+# %%
+#%%
+class FileObj:
+    def __init__(self, name='-', dir='', size=0, type='', ext='', date=''):
+        self.name = name
+        self.dir = dir
+        self.size = size
+        self.type = type
+        self.ext = ext
+        self.date = date
+#%%
+from pathlib import Path
+import re
+import os
+
+# file = '../eos/listing_hic_wps_build_2020.txt'
+path = '../nike/'
+dir_list = os.listdir(path)
+for f in dir_list:
+    objs = []
+    file = path + f
+    txt1 = Path(file).read_text()
+    dir = ''
+    mnths = {'Jan':1,'Feb':2,'Mar':3,'Apr':4,'May':5,'Jun':6,'Jul':7,'Aug':8,'Sep':9,'Oct':10,'Nov':11,'Dec':12}
+    for line in txt1.splitlines():
+        if line.startswith('./'):
+            dir = line[:-1]
+        elif line.startswith('d') or line.startswith('-'):
+            a = re.split(" +", line)
+            size = int(a[4])
+            month = mnths[a[5]]
+            dt = a[6]
+            year = a[7]
+            if year.find(':') != -1:
+                year = '2021'
+            date = str(month) + '/' + dt + '/' + year
+            name = a[8]
+            type = 'File'
+            if line.startswith('d'):
+                type = 'Dir'
+            ext = ''
+            if type == 'File' and name.find('.') != -1:
+                ext = name.split('.')[-1]
+            if dir == '':
+                dir = './'
+            objs.append (FileObj(name, dir, size, type, ext, date))
+
+    with open(f.split('.')[0] + ".csv", "w") as csv:
+        csv.writelines ('dir,size,type,ext,name,date,month\n')
+        for f in objs:
+            s = f.date.split('/')
+            csv.write (f.dir + ','+ str(f.size) + ','+ f.type + ','+ 
+                f.ext + ','+ f.name + ','+ f.date + ','+ s[0] + '/' + s[2] + '\n')
+
+#%%
+import pandas as pd
+import numpy as np
+
+df = pd.read_csv('nike-mscan4-data-archive.csv')
+# df2 = df.groupby(['month']).size().sort_values(ascending=False).head(10)
+# print(df2)
+df2 = df.groupby('ext').size().sort_values(ascending=False).head(10)
+print(df2)
+df2 = df.groupby('dir').size().sort_values(ascending=False).head(10)
+print(df2)
+df2 = df.groupby('dir')['size'].sum().sort_values(ascending=False).head(10)
+print(df2)
+
+df2 = df.groupby('ext').agg({'size':'mean', 'name':'count'}).sort_values('size', ascending=False).head(10)
+print(np.floor(df2))
+
+s = df.groupby('dir').size().sort_values(ascending=False).head(10)
+# print (s)
+for a in s.keys():
+    # print(a)
+    t = df[df['dir']==a].groupby('ext').size().sort_values(ascending=False).head(5)
+    for k in t.keys():
+        print (a, k, t[k])
+
+print ('Total rows:', df['name'].count())
+print ('Total size:', df['size'].sum())
+print ('Total dirs:', df[df['type'] == 'Dir']['name'].count())
+# %%
+df = pd.read_csv('nike-hic3.csv')
+df[df['ext']=='txt'].sort_values('size', ascending=False).head(5)
+# %%
+#%%
+class tbl:
+    def __init__(self, name='-', rows=0, cols=0, file='', filesize=0):
+        self.name = name
+        self.rows = rows
+        self.cols = cols
+        self.file = file
+        self.filesize = filesize
+
+#%%
+from pathlib import Path
+file = '../AS4/as4-out.csv'
+txt1 = Path(file).read_text()
+name = ''
+rows = 0
+cols = 0
+tbls = []
+for line in txt1.splitlines():
+    if line.startswith('Data Set Name,'):
+        name = line.split(',')[1]
+    elif line.startswith('Observations'):
+        rows = int(line.split(',')[1])
+    elif line.startswith('Variables,'):
+        cols = int(line.split(',')[1])
+    elif line.startswith('File Name'):
+        file = line.split(',')[1]
+    elif line.startswith('File Size'):
+        filesize = int(line.split(',')[1])
+        tbls.append (tbl(name, rows, cols, file, filesize))
+
+#%%
+print (len(tbls))
+for t in tbls:
+    print (t.name, t.rows, t.cols, t.file, t.filesize)
+
+
+# %%
+
+#%%
+from genericpath import exists
+from pathlib import Path
+import re
+import glob
+#%%
+mylist = [f for f in glob.glob("../msbc/*.sas")]
+print (len(mylist))
+
+for file in mylist:
+    txt = Path('../msbc/'+file).read_text()
+    txt = re.sub(r"/\*(.*?\n?)*\*/", "", txt)
+    lines = txt.splitlines()
+    lines = list(filter(lambda x: len(x.strip()) != 0, lines))
+    # lines = list(filter(lambda x: x.strip().startswith('/*') == False, lines))
+    print (file, len(lines))
+
+# %%
+f = open("../clientid_list_for_moderization_team.txt", "r")
+ids = f.read().splitlines()
+for id in ids:
+    if exists('../msbc/asmc'+id+'.sas'):
+        # print ('asmc'+id)
+        txt = Path('../msbc/asmc'+id+'.sas').read_text()
+        txt = re.sub(r"/\*(.*?\n?)*\*/", "", txt)
+        lines = txt.splitlines()
+        lines = list(filter(lambda x: len(x.strip()) != 0, lines))
+        # lines = list(filter(lambda x: x.strip().startswith('/*') == False, lines))
+        print ('asmc'+id, len(lines))
+
+# %%
+ids = [855,691,816]
+for id in ids:
+    txt = Path('../msbc/asmc'+str(id)+'.sas').read_text()
+    txt = re.sub(r"/\*(.*?\n?)*\*/", "", txt)
+    lines = txt.splitlines()
+    lines = list(filter(lambda x: len(x.strip()) != 0, lines))
+    # lines = list(filter(lambda x: x.strip().startswith('/*') == False, lines))
+    print ('/*======== ' +str(id) +' =======================================================*/' )
+    for line in lines:
+        print (line)
+
+# %%
+f = open("../clientid_list_for_moderization_team.txt", "r")
+ids = f.read().splitlines()
+for id in ids:
+    if not exists('../msbc/asmc'+id+'.sas'):
+        print (id)
+
+# %%
+import shutil
+f = open("../clientid_list_for_moderization_team.txt", "r")
+ids = f.read().splitlines()
+for id in ids:
+    src = '../msbc/asmc'+id+'.sas'
+    if exists(src):
+        shutil.copy(src, '../99-macros/')
+
+# %%
