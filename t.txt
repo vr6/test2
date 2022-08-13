@@ -401,19 +401,8 @@ from pathlib import Path
 import re
 
 mfiles = [
-    'advadmit.sas',
-    'advdrug.sas',
-    'advelig.sas',
-    'advfachd.sas',
-    'advfacil.sas',
-    'advgen.sas',
-    'advpop.sas',
-    'advprof.sas',
-    'advs.sas',
-    'loadenrl.sas',
-    'statfreq.sas',
-    'statmean.sas',
-    'utilmac.sas',
+    'adat.sas',
+    'addg.sas',
 ]
 txts = []
 for file in mfiles:
@@ -628,7 +617,7 @@ for file in mylist:
     print (file, len(lines))
 
 # %%
-f = open("../clientid_list_for_moderization_team.txt", "r")
+f = open("../list.txt", "r")
 ids = f.read().splitlines()
 for id in ids:
     if exists('../msbc/asmc'+id+'.sas'):
@@ -653,7 +642,7 @@ for id in ids:
         print (line)
 
 # %%
-f = open("../clientid_list_for_moderization_team.txt", "r")
+f = open("../team.txt", "r")
 ids = f.read().splitlines()
 for id in ids:
     if not exists('../msbc/asmc'+id+'.sas'):
@@ -661,7 +650,7 @@ for id in ids:
 
 # %%
 import shutil
-f = open("../clientid_list_for_moderization_team.txt", "r")
+f = open("../team.txt", "r")
 ids = f.read().splitlines()
 for id in ids:
     src = '../msbc/asmc'+id+'.sas'
