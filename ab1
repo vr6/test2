@@ -38,6 +38,12 @@ v = 1/2 - a
 
 --------------
 
+A major problem I cam across in terms of devloper experience and dev speed is that, currently it apepars that there is no way for developers to quickly test their code changes without going through code merge (into master branch) and merge approvals.
+
+This is in stark contrast with app developement, where one would have a run-time environment (JVM etc) on their local VDI, and they can quickly test locally as they evolve the code to fix a bug etc. This is the core aspect which gives devlopment speed.
+
+For cloud dev, the runtime environment doesn't exist locally on VDI. They will need to deploy the changes to a cloud env. But currently this requires devs to go through approvals just to test their chanhes quickly to check if the fix works or not. This is impacting the speed due to dependency on others to approve their changes for every small change which was not even tested. This would also result blind coding and pushing to master branch having un-tested code, which is incorrect practice.
+
 
 
 
