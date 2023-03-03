@@ -45,10 +45,9 @@ The updates are posted here:
 Briefly, deploying the logs jobs to a new account requires an infra prep step and 4 different integrations which are all known to have high potential of running into issues and dependency on cloud ops teams.
 
 We received the EKS cluster only a couple of days back (on Feb 28) from platform/ops after their troubleshooting of network & namespace issues. Currently the data team have completed troubleshooting the builds pipeline and proceeding with the remaining 3 integrations. We hope to get the logs in the new account operational by end of next week.
+@michael - we seem to be diverting data team's efforts to creating and attaching log files to GR tickets which appears to me a redundant effort given the log streams would have the same log content. Any thoughts on this?
 
-GR team - we seem to be diverting data team's efforts to creating and attaching log files to GR tickets which appears to me a redundant effort given the log streams would have the same log content. Any thoughts on this?
-
-Sec team - Coud you please provide us with a logs destination for the new account?
+@anila - Coud you please provide us with a logs destination for the new account?
 
 
 
