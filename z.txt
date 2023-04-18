@@ -1,0 +1,280 @@
+
+i is the 90-deg rotation matrix
+i = [[0, -1], [1, 0]]
+if vector v = [sin(t), cos(t)]
+then v' = i * v
+
+i*pi = [[0, -pi], [pi, 0]]
+(i*pi)^2 = [[-pi^2, 0], [0, -pi^2]] = -1 * pi^2
+let i*pi = t
+e^t = tayle's expansion
+e^(i*pi) = [[-1, 0], [0, -1]] = -1
+
+
+e^(i*pi) = -1
+
+-----------
+a^z + b^z
+
+a=b
+zero on left, inf on right. unit line in the middle. zero and inf have equal frequency.
+
+ab = 1
+symmetric, inf on both sides, strip of unit circles in the middle. The unit circles have a phase of +/- pi/2
+
+a=0+, b = 2
+variation of the first case. inf on both sides, strip of unit circles in the middle. circles shifted to the left. frequency of inf stripes increases on the left.
+
+The following pairs are mirror images around ab=1
+------
+a=1+, b = 0+
+inf on both sides. unit line on left edge. unit line becomes circles at b>1.05. Left inf has a lot more frequency than the right.
+
+a=1-, b = 2
+inf on both sides. unit line on right edge. unit line becomes circles at a<0.995. Right inf has a lot more frequency than the left.
+
+------
+a=1-, b = 0+
+zero on right, inf on left. unit line on left edge. unit line becomes tight waves at b<0.95. Inf has a lot more frequency than zero.
+
+a=1+, b = 2
+zero on left, inf on right. unit line on right edge. unit line becomes tight wave at a>1.05. Inf has a lot more frequency than zero.
+
+
+
+
+
+
+
+
+----------
+
+z/(z-1)
+(2i)^z
+2^z+1.001^z
+i-z+1/z
+1-z^2
+z^3+1/z^3
+z^6+z
+z^2+z
+z^2+z+1.25
+z^2+1
+z^3+z^7
+z^6+z^11
+z^10+z^16
+z^15+z^22
+z^21+z^29
+z^2+z^3
+2^(1/z)
+2^(z^3)
+2^(z^-2)
+1/z^4+1/z^10
+(e^(i*pi))^z
+(log(z^5+1))
+(z)^4/(z^5+0.05)
+z(z^6-1)
+(1-zi-0.05)(1+iz)
+z + z^20
+1/z + z^20
+zlog(z)
+(x+i)^z => t=cos_(x/2)
+
+wave lengths of transformations
+1: 1*z, 0+z, z/1, z-0,  
+2: a-z, a/z, -a/z,
+4: (a-z)/(a+z), iz, i(a+z)/(a-z)
+
+(1+z), (1+z)/(1-z), 1/(1-z) are the circular to linear transforms
+(1+z) is panning z by +1
+1/(1-z) is panning -1/z by -1
+
+z/(1-z) ------| pan |-----> (1/2+z)/(1/2-z)
+   |							  |
+   |							  |
+ zoom 	  					     zoom
+   |							  |
+   |							  |
+   V 							  V
+z/(2-z) ------| pan |------> (1+z)/(1-z)
+
+
+
+
+
+
+z, 2^z are also similar transforms
+
+
+
+(a+bi)^z :
+a=1; b=0 => point-zoom on 1. No orientation of line.
+a=[0:1], b=0 => vertical line, with zero on the right
+a>1; b=0 => vertical line, with zero on the left
+a=0; b=1 => horiz line, with zero on top
+a=0; b=-1 => horiz line, with zero on bottom
+a=-1; b=0 => horiz line, with zero on top, more zoom in
+as the a+bi moves along the circle, the angle detrmines zoom
+full zoom at +1 and lowest zoom at -1
+For point not on x+ axis and not on the circle, the line has an angle.
+
+
+sum(1/z^(n+1)) => -1/(1-z)   z is outside unit circle
+sum(z^(n+1)) => z/(1-z)
+
+views with +i at top
+-1/z => view from inf
+z => view from 0
+(z-1)/(z+1) => view from -1
+(1+z)/(1-z) => view from +1
+
+views with 0 on the left
+i(z+1)/(z-1) => view from -i
+(z+1)/(z-1)i => view from +i
+
+-----------------
+ sum(z^n) U 1-sum(z^-n)   = 1/(1-z)  => n = 0 to inf: inf replace
+-sum(z^n) U   sum(z^-n)-1 = 1/(z-1)  => n = 0 to inf: inf replace
+-----------------
+  sum(z^n)-1 U -sum(z^-n) = z/(1-z)  => n = 0 to inf: inf replace
+1-sum(z^n)   U  sum(z^-n) = z/(z-1)  => n = 0 to inf: inf replace
+-----------------
+
+sum((2^n)^-z) is the linearized sum(z^-n) => n=1 -> inf
+which in turn, is outer part of linearized 1/(z-1)
+
+sum((2^n)^z) is outer part of linearized 1/(1-z)
+------------
+0, 1, -1 etc are points in the continuity
+inf is the continuity among points.
+points have opposing points.
+inf is not a point
+finite conitinuity is the opposite of inf.
+zero has no opposing point
+entire sphere is the oppiste point of inf
+any point on the R has same number of vertical grid lines on both sides. Thus any point can be the opposite of inf.
+the unit circle is the opposite of inf.
+
+a^z is half-way between z and 1/z because a^z is the linearized form of z and 1/z, which are both closed forms.
+
+sum(z^n)[n:1->m] is the closed form of sum (a^zn)
+
+a^z +
+
+------------
+
+exp(re(z)*log(a)) * ( cos(im(z)*log(a)) + i* sin(im(z)*log(a)) )
+
+a^re(z) * ( cos(im(z)*log(a)) + i* sin(im(z)*log(a)) )
+
+2^re(z) * ( cos(im(z)*log(2)) + i* sin(im(z)*log(2)) )
+
+------------
+
+
+(i-sqrt(z))/(i+sqrt(z)) => 0 and inf coincides
+2^(1/z)
+re(z)+atan(im(z)/re(z))i
+
+-----------
+z^2 + z = (z+.5)^2 - .25
+z^2 + az = (z+a/2)^2 - (a/2)^2
+shape of z^2 + az = z^2 - (a/2)^2
+
+a^z = z^inf
+inf+1/z = z
+0.5+1/z
+1+1/z
+
+1 is the unit circle.
+1/z is the inversion though unit circle
+1/z inverses i and -i (flip around x axis)
+i/z rotates 1/z by pi/2
+
+a=[0,1,i,-i,-1,inf)]
+(y+1)(z+1)=2 gives pairings
+(y-1)(z-1)=2
+
+a^z is the view at equator, with sphere center as view point (outside)
+a=[1,-1,i,-i,inf,0)]
+a+1/z is the view at a', with a as view point (outside)
+
+0.5+2^z
+
+4,5 = 25 4.48
+4,8 = 8, 1.44
+4,3 = 15 , 3.476
+4,2 = 4 , 1.44
+4,6 = 14, 2.466
+4,7 = 10, 1.78
+
+
+
+1+a^z = 0 => z=i*pi(2n+1)/ln(a) => w=2pi/ln(a)
+
+1+2^x+3^x = 0 => 
+-0.454397 +/- 3.59817 i
+
+1+2^x+3^x+4^x = 0 => 
+-0.625971 +/- 3.12712 i
+-0.502684 +/- 20.7799 i
+
+1+2^x+3^x+4^x+5^x = 0 => 
+-0.714285 +/- 2.83349 i
+-0.019836 +/- 6.07086 i
+
+S(6)
+-0.767633 +/- 2.62901 i...
+-0.203789 +/- 5.56924 i...
+
+S(7)
+-0.803209 +/- 2.47644 i...
+
+S(8)
+-0.828584 +/- 2.35711 i...
+-0.410955 +/- 4.92947 i...
+
+S(9)
+-0.847585 +/- 2.26049 i...
+-0.475105 +/- 4.70825 i...
+
+S(10)
+-0.862348 +/- 2.18022 i...
+-0.524867 +/- 4.52654 i...
+
+S(11)
+-0.874153 +/- 2.11212 i...
+-0.564633 +/- 4.3738 i...
+
+S(12)
+-0.883812 +/- 2.05341 i...
+-0.597173 +/- 4.24307 i...
+
+S(13)
+-0.891868 +/- 2.00209 i...
+-0.624318 +/- 4.12949 i...
+
+-----------
+0	4.53
+-0.454397	3.59817
+-0.625971	3.12712
+-0.714285	2.83349
+-0.767633	2.62901
+-0.803209	2.47644
+-0.828584	2.35711
+-0.847585	2.26049
+-0.862348	2.18022
+-0.874153	2.11212
+-0.883812	2.05341
+-0.891868	2.00209
+
+-0.019836	6.07086
+-0.203789	5.56924
+-0.410955	4.92947
+-0.475105	4.70825
+-0.524867	4.52654
+-0.564633	4.3738 
+-0.597173	4.24307
+-0.624318	4.12949
+-------------
+
+
