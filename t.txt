@@ -658,3 +658,222 @@ for id in ids:
         shutil.copy(src, '../99-macros/')
 
 # %%
+
+# %%
+from math import sqrt, pi, sin, cos
+from geo import *
+# %%
+class Graph():
+    def __init__(self, vx, ex) -> None:
+        self.vx = vx
+        self.ex = ex
+
+    def wire(self):
+        return [tolist(self.vx), self.ex]
+
+class FrameBuilder():
+    def __init__(self) -> None:
+        fw = 2.0
+        fh = 10.0
+        bh = 5.0
+        w = 0.2
+        u = 0.2
+        self.px = build_frame(fw, fh, bh, w, u)
+
+    def frame(self): return self.px
+
+def build_frame(fw, fh, bh, w, u):
+    pass
+
+def build_edge(e, w, u):
+    [[a,b],[c,d]] = e.f
+    z = pt(0,0,-u)
+    e.vx = [a,b, b+z, a+z]
+    e.h = c - b
+    
+# %%
+class Node():
+    def __init__(self, v, px, ex, w, bh, fw) -> None:
+        self.v = v
+        self.w = w
+        self.px = move(px, pt(0,0,w/2))
+        self.ex = ex
+        self.cx = [bh, sqrt(fw*fw + bh*bh), fw]
+    
+    def move(self, f):
+        move(self.px, f)    
+        move(self.ex, f)
+        self.v += f
+        
+    def refY(self):
+        refY(self.px)
+        refY(self.ex)
+        self.v.refY()
+
+    def refX(self):
+        refX(self.px)
+        refX(self.ex)
+        self.v.refX()
+
+    def refN(self):
+        refN(self.px)
+        refN(self.ex)
+        self.v = -self.v
+    
+    def pull(self):
+        ps = [tolist(self.px), self.v.tolist(), [0,0,-self.w]]
+
+        wt = pt(0,0,-self.w/2)
+        for i in range (len(self.ex)):
+            e = self.ex[i]
+            vs = (e[0] + e[1])/2 - self.v
+            vs = vs.unit() * (self.cx[i] - 2*abs(vs))
+            ps = [e[0]-wt, e[1]-wt, e[1]+wt, e[0]+wt]
+            ps.append ([tolist(ps), [], vs.tolist() ])
+        
+        return ps            
+            
+        
+        
+def box_a(bh, fw, t):
+    # w, z = 1.0, pt(0,0,0)
+    # n1 = Node(z, *node_a(t, True), w, bh, fw)
+    # n2 = Node(z, node_c())
+
+    # n1.move(pt(0, fw,0))    
+    px, ex = node_b(60,40)
+    plot2 (px)
+    
+    
+    
+    return None
+
+def box_b(bh, fw, t):
+    return None
+
+def box_c(bh, fw, t):
+    return None
+
+def box_e(bh, fw, t):
+    return None
+
+def build_beam(fw, fh, bh):
+        nb = int(fh / bh)
+        t = atan2(fw, bh)
+
+        a = box_a (bh, fw, t)
+        b = box_b (bh, fw, t)
+        c = box_c (bh, fw, t)
+        e = box_e (bh, fw, t)
+        
+        
+        return Beam (a,b,c,e,nb)
+    
+class Beam():
+    def __init__(self, a,b,c,e,nb) -> None:
+        pass
+
+
+def node_a(t, dbl):
+    w = 1.0
+    f, T = w/2, pi/2
+
+    a1 = pt (f / tan(t/2),  f, 0)
+    a2 = a1.refY()
+    e1 = [a1, a2]
+
+    c1, e2 = None, None
+    c2 = pt (f, -f / tan((T - t)/2), 0)
+    c3 = c2.refX()
+    if t > pi/4:
+        c1 = c2 + pt.from_rt(w,  T-t)
+        e2 = [c1, c2]
+    else:
+        c1 = a2 - pt.from_rt(w,  T-t)
+        e2 = [a2, c1]
+    e3 = [c2, c3]
+
+    px = [a1, a2, c1, c2, c3]
+    ex = [e1, e2, e3]
+    if not dbl:
+        px += [pt(-c2.x,f,0)]
+        ex.append(refX(e1))
+    else:
+        px += [c1.refX(), a2.refX(), a1.refX()]
+        ex.append(refX(e2))
+        ex.append(refX(e1))
+    return px, ex
+
+def node_b(t1, t2):
+    t1, t2, w = t1*pi/180, t2*pi/180, 1.0
+    f, T = w/2, pi/2
+
+    a1 = pt ( f / tan(t1/2),  f, 0)
+    b1 = pt (-f / tan(t2/2),  f, 0)
+    a2 = a1.refY()
+    b2 = b1.refY()
+    e1 = [a1, a2]
+    e5 = [b2, b1]
+
+    tc = max (t1, t2)
+    c2 = pt (f, -f / tan((T - tc)/2), 0)
+    c3 = c2.refX()
+    e3 = [c2, c3]
+
+    px = [a1, a2]
+    p = pt.from_rt(w, T-t1)
+    if t1 > pi/4:
+        px.append(c2 + p)
+        e2 = [c2 + p, c2]
+    else:
+        px.append(a2 - p)
+        e2 = [a2, a2 - p]
+
+    c1 = pt ( f, -f / tan((T - t1)/2), 0)
+    c4 = pt (-f, -f / tan((T - t2)/2), 0)
+    if t1 != pi/4:
+        if   t1 < t2: px += [c1, c2, c3]
+        elif t2 < t1: px += [c2, c3, c4]
+
+    p = pt.from_rt(w, t2-T)
+    if t2 > pi/4:
+        px.append(c3 - p)
+        e4 = [c3, c3 - p]
+    else: 
+        px.append(b2 + p)
+        e4 = [b2 + p, b2]
+
+    return px, [e1, e2, e3, e4, e5]
+
+def node_c():
+    w = 1.0
+    p = pt(w/2, w/2, 0)
+    return [p.refX(), -p, p.refY(), p], [p.refY(), p ]
+
+build_beam(2.0, 10.0, 5.0)
+
+
+# %%
+import matplotlib.pyplot as plt
+def plot(*a):
+    _, ax = plt.subplots(len(a))
+    if len(a) == 1: ax = [ax]
+    for k in range(len(a)):
+        print (a[k])
+        ax[k].set_aspect('equal')
+        for i in range (len(a[k])-1):
+            xi = [a[k][i].x, a[k][i+1].x]
+            yi = [a[k][i].y, a[k][i+1].y]
+            ax[k].plot(xi, yi)
+    plt.show()
+
+def plot2(*a):
+    _, ax = plt.subplots(1)
+    ax.set_aspect('equal')
+    for k in range(len(a)):
+        for i in range (len(a[k])-1):
+            xi = [a[k][i].x, a[k][i+1].x]
+            yi = [a[k][i].y, a[k][i+1].y]
+            ax.plot(xi, yi)
+    plt.show()
+
