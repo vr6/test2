@@ -877,3 +877,30 @@ def plot2(*a):
             yi = [a[k][i].y, a[k][i+1].y]
             ax.plot(xi, yi)
     plt.show()
+
+--------
+
+
+hi
+
+Could you please answer the following questions some of whivh I asked you during the call but did not get a response from you.
+
+	1. What is driving the prioritization of the two requests from this requestor? As I have explained in the call, your answer is criical for me to assign the correct priority category to these requests.
+
+	2. Why did you invite Data Engineering team (<>) into the call and why were they insisting for delivery of this request with extreme urgency while they are not part of the requestor team nor the DevOps team (see attachment)? What is the background context for this?
+
+	3. Did you or the Data Engineering team make any commmitments regarding delivery dates, to this requester? If yes, what are those dates?
+
+	4. What is the basis of your estimation when you were insisting in the call asking for completing the delivery in a single day or two (see attachment) while the work on the requests was not started yet?
+
+	5. Which workflow role are you performing for your apparantly abrupt involvement into Cloud Data DevOps work over the past few days, startng from <> (see attachment)?
+
+Regarding the infomration you have requested from me, I'm providing you the following, whivh I provided to you during the call via screenshare as well.
+
+	1. The deployment requests which my team recieves, are prioritized according to a crteria that assigns a priority category to each request. We provide date commitments only to some of these requests based on situation on the requestor side. We can't provide date commitments to all requests due to the external dependencies on our side who do not provide date commitments to us. Some issues due to external dependencies take weeks to get a resolution.
+
+	2. As I explained in our call, I had a call with the requestor about their requests on the same day when they contacted me asking for higher prioritization of their requests. After the call with the requestor, their requests were prioritized accordingly and my team is in touch with the requestor directly, as we do with other prioritized requests. The tasks are dynamically assigned to team members based on their availability. Most of my team have worked on this task so far.
+
+I'm happy to assist you for any other queries.
+
+
